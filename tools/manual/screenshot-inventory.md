@@ -207,7 +207,7 @@
 |[theme-applied](../../docs/manual/images/ui-20261101-theme-applied-a35192a681.png)|[index.html#shot-theme-applied](../../docs/manual/index.html#shot-theme-applied)|blue / 1280×900|
 |[theme-toggle-light](../../docs/manual/images/ui-20261115-theme-toggle-light-892edd1c87.png)|[index.html#shot-theme-toggle-light](../../docs/manual/index.html#shot-theme-toggle-light)|light / 1024×260|
 |[theme-toggle-dark](../../docs/manual/images/ui-20261115-theme-toggle-dark-fe35e136be.png)|[index.html#shot-theme-toggle-dark](../../docs/manual/index.html#shot-theme-toggle-dark)|dark / 1024×260|
-|[about](../../docs/manual/images/ui-scs-about-ab0c3990a4.png)|[index.html#shot-about](../../docs/manual/index.html#shot-about)|light / 1280×720|
+|[about](../../docs/manual/images/ui-scs-about-c5fe526afe.png)|[index.html#shot-about](../../docs/manual/index.html#shot-about)|light / 1280×720|
 |[config](../../docs/manual/images/ui-20261101-config-26a68b774c.png)|[index.html#screen-config](../../docs/manual/index.html#screen-config)|light / 1280×900|
 |[diagnosis](../../docs/manual/images/ui-20261101-diagnosis-e05b5c2f06.png)|[index.html#screen-diagnosis](../../docs/manual/index.html#screen-diagnosis)|light / 1280×900|
 |[project-list](../../docs/manual/images/ui-20261101-project-list-a092c6bdee.png)|[index.html#screen-project-list](../../docs/manual/index.html#screen-project-list)|light / 1280×900|

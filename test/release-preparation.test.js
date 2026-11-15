@@ -4,8 +4,14 @@ test('release approval cannot be inferred from a successful build or individual 
  assert.equal(releaseBlockers().length,3);const copy=structuredClone(pkg);copy.distribution.publicationApproved=true;assert.equal(releaseBlockers(copy).length,2);copy.distribution.assetsApproved=true;copy.distribution.thirdPartyComplianceApproved=true;assert.deepEqual(releaseBlockers(copy),[]);
 });
 test('license excludes third-party rights and notices include exact runtime texts',()=>{
- assert.equal(pkg.private,true);assert.equal(pkg.license,'SEE LICENSE IN LICENSE.txt');
- assert.match(fs.readFileSync('LICENSE.txt','utf8'),/第三者ライセンスにより許諾・要求される行為を除きます/);
+ assert.equal(pkg.private,true);assert.equal(pkg.license,'MIT');
+ assert.equal(require('../package-lock.json').packages[''].license,pkg.license);
+ const license=fs.readFileSync('LICENSE.txt','utf8').replace(/\r\n/g,'\n');
+ assert.match(license,/^MIT License\n\nCopyright \(c\) \d{4} qtaro-dev/);
+ assert.match(license,/modify, merge, publish, distribute, sublicense/);
+ assert.match(license,/THE SOFTWARE IS PROVIDED "AS IS"/);
+ assert.equal(fs.readFileSync('docs/manual/LICENSE.txt','utf8').replace(/\r\n/g,'\n'),license);
+ assert.match(fs.readFileSync('THIRD_PARTY_NOTICES.txt','utf8'),/画像・商標には個別の条件/);
  for(const [from,to]of [['node_modules/electron/dist/LICENSE','legal/third-party/Electron-LICENSE.txt'],['node_modules/yaml/LICENSE','legal/third-party/yaml-LICENSE.txt'],['node_modules/electron/dist/LICENSES.chromium.html','legal/third-party/LICENSES.chromium.html']]){
   // Git stores LF; Electron's Windows archive uses CRLF for the Chromium notices.
   const readLicense=file=>fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n');

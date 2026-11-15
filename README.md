@@ -159,9 +159,11 @@ Docker 構成を GUI で生成できるツールがあれば、
 
 ## 配布方針
 
-無料フリーウェアとして個人・商用環境で利用できます。本体ソースは非公開とする方針です。ソフト本体の無断再配布・販売は原則禁止です。[利用許諾](LICENSE.txt)と[第三者著作権表示](THIRD_PARTY_NOTICES.txt)を参照してください。現状有姿で提供し、動作やサポートを保証しません。
+本プロジェクトの自作ソースコードと自作サンプルコードは [MITライセンス](LICENSE.txt) で公開します。利用・改変・再配布が可能です。画像、第三者コード・ライブラリ、商標には個別の条件が適用されます。詳しくは [第三者著作権表示](THIRD_PARTY_NOTICES.txt) を参照してください。
 
-GitHubのPrivate化・配布用Publicリポジトリ・正式公開は未実施です。画像の権利等の未確認事項があるため、ローカル候補EXEを一般公開しないでください。[公開準備と停止条件](tools/release/README.md)に記録しています。
+Windows x64のInstaller版・Portable版は、配布条件の確認後に [GitHub Releases](https://github.com/qtaro-dev/Server-Control-Studio/releases) から無料配布します。未署名のEXEは、Windows SmartScreen等が警告を表示する場合があります。ダウンロードしたファイルは公開時のSHA-256と照合してください。
+
+Server Control StudioはDocker, Inc.と提携していない独立したプロジェクトです。
 
 ## 開発環境（Server Control Studio）
 

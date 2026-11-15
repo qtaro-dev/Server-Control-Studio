@@ -45,7 +45,7 @@ try {
   const manifest = JSON.parse(fs.readFileSync(path.join(temporary, "package.json"), "utf8"));
   manifest.main = "smoke.js";
   fs.writeFileSync(path.join(temporary, "package.json"), JSON.stringify(manifest));
-  const env = { ...process.env, DOCKER_BUILDER_SOURCE_ROOT: root, DOCKER_BUILDER_SCREENSHOT_DIR: path.join(root, "release/theme-previews") };
+  const env = { ...process.env, DOCKER_BUILDER_SOURCE_ROOT: root, DOCKER_BUILDER_SCREENSHOT_DIR: process.env.DOCKER_BUILDER_SCREENSHOT_DIR || path.join(root, "release/theme-previews") };
   delete env.ELECTRON_RUN_AS_NODE;
   const result = spawnSync(electron, [temporary], {
     env, stdio: "inherit", timeout: 90000,

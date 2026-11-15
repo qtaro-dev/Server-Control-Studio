@@ -6,4 +6,6 @@ The plugin author says it follows the 7-Zip source code license. The project dis
 
 Plugin source download/project page: https://nsis.sourceforge.io/Nsis7z_plug-in
 7-Zip 19.00 source archive: https://www.7-zip.org/a/7z1900-src.7z
-The exact plug-in source revision and source-to-DLL correspondence have not been verified. The source link and version metadata alone do not establish that the released installer has been supplied with matching source.
+The author's Nsis7z_19.00.7z contains the plug-in source and build projects, and its x86-Unicode DLL matches both audited v0.1.0 candidates.
+Plug-in source and binaries: https://nsis.sourceforge.io/mediawiki/images/6/69/Nsis7z_19.00.7z
+Provide the plug-in source and the upstream 7-Zip 19.00 source with their notices and exact build instructions. Source provision and the rebuild remain pending.

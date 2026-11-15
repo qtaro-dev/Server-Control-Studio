@@ -44,3 +44,6 @@ desktop.ini
 
 # Required source hook; generated NSIS manifests remain ignored.
 !/build/before-build.cjs
+
+# Historical logo originals retained locally outside the public source tree.
+/tools/release/logo-review-20261031/downloads/

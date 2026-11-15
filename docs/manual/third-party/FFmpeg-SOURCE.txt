@@ -6,9 +6,17 @@ Electron: 45.0.0; Chromium: 156.0.8078.48
 Chromium FFmpeg source repository: https://chromium.googlesource.com/chromium/third_party/ffmpeg.git
 Pinned commit: 9db86ce5b5b454dfc96c435f9f0723012980c37f
 Source archive candidate: ffmpeg-chromium-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz
-SHA-256: bcc75b7de57ef52cb71d6f2ef74a0564e1d7fb8aff9f982695cf28c2c1cec731
+SHA-256 (locally retrieved upstream archive): 56e099f615fb21debbc932c9277db4d1b1e9d68b177afc389e07816dda0fc28b
 Binary SHA-256: cdf2b70f0f0a97c9840af1466dd86a90e564c98f6892d783635cf9c3b303d613
 
-PE export table inspection found 53 FFmpeg API functions, including av_read_frame, avcodec_find_decoder, and avformat_open_input. The exports do not include av_version_info or avcodec_configuration, so configuration could not be queried through those API functions. Electron v45.0.0 build/args/release.gn sets is_component_ffmpeg=true and describes a shared FFmpeg library for LGPL dynamic linking. Electron's build/args/ffmpeg.gn is for the standalone ffmpeg.zip artifact and sets proprietary_codecs=false; it does not establish the effective configuration of this app's ffmpeg.dll. Effective flags, external libraries, exact source-to-binary rebuild correspondence, DLL replacement/relaunch, and public download placement remain unverified. Do not treat this record or archive as proof of compliance.
+PE export table inspection found 53 FFmpeg API functions, including av_read_frame, avcodec_find_decoder, and avformat_open_input. The exports do not include av_version_info or avcodec_configuration, so configuration could not be queried through those API functions. Electron v45.0.0 build/args/release.gn sets is_component_ffmpeg=true and describes a shared FFmpeg library for LGPL dynamic linking. Electron's build/args/ffmpeg.gn is for the standalone ffmpeg.zip artifact and sets proprietary_codecs=false; it does not establish the effective configuration of this app's ffmpeg.dll.
+
+The versioned Chromium DEPS identifies the FFmpeg revision above. Its upstream Chrome-branded Windows x64 generated config sets CONFIG_GPL=0, CONFIG_NONFREE=0, CONFIG_VERSION3=0 and CONFIG_LIBOPUS=1.
+Electron's common release args set ffmpeg_branding=Chrome and proprietary_codecs=true. These source settings are evidence for the expected build; exact correspondence, dependencies and a substitute-DLL launch still require verification.
+Build inputs: https://github.com/electron/electron/tree/v45.0.0/build/args
+Chromium DEPS: https://chromium.googlesource.com/chromium/src/+/refs/tags/156.0.8078.48/DEPS
+Source archive: https://chromium.googlesource.com/chromium/third_party/ffmpeg/+archive/9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz
+
+Effective flags, external libraries, exact source-to-binary rebuild correspondence, DLL replacement/relaunch, and public download placement remain unverified. Do not treat this record or archive as proof of compliance.
 
 Official project guidance: https://ffmpeg.org/legal.html

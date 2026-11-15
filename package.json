@@ -27,7 +27,7 @@
   },
   "keywords": [],
   "author": "qtaro-dev",
-  "license": "SEE LICENSE IN LICENSE.txt",
+  "license": "MIT",
   "devDependencies": {
     "electron": "45.0.0",
     "electron-builder": "26.18.1"
@@ -148,7 +148,7 @@
     "projectURL": "https://github.com/qtaro-dev/Server-Control-Studio",
     "issuesURL": "https://github.com/qtaro-dev/Server-Control-Studio/issues",
     "copyrightHolder": "qtaro-dev",
-    "licenseDisplayName": "独自利用許諾（LICENSE.txt）",
+    "licenseDisplayName": "MIT License（LICENSE.txt）",
     "publicationApproved": false,
     "assetsApproved": false,
     "thirdPartyComplianceApproved": false

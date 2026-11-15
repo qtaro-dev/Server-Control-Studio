@@ -14,7 +14,7 @@ test('existing Node application files are protected as a group on confirmed bund
  assert.equal(fs.readFileSync(path.join(dir,'package.json'),'utf8'),'USER PACKAGE');assert.equal(fs.readFileSync(path.join(dir,'existing-app.js'),'utf8'),'USER APP');assert.equal(fs.existsSync(path.join(dir,'package-lock.json')),false);assert.equal(fs.existsSync(path.join(dir,'server.cjs')),false);assert.equal(result.preserved.length,3);assert.equal(preview.preserved.length,3);assert.ok(fs.existsSync(path.join(root,'nginx/conf/default.conf')));
  }finally{assert.equal(path.dirname(parent),base);fs.rmSync(parent,{recursive:true,force:true});}
 });
-test('installer license is UTF16LE BOM and identical to original Japanese text apart from CRLF',async()=>{
+test('installer license is UTF16LE BOM and identical to the MIT license apart from CRLF',async()=>{
  assert.equal(await require('../build/before-build.cjs')(),true,'normal dependency collection must continue');const bytes=fs.readFileSync(path.join(__dirname,'../build/license-utf16le.txt'));
- assert.deepEqual([...bytes.subarray(0,2)],[255,254]);const text=bytes.subarray(2).toString('utf16le');assert.equal(text.replace(/\r\n/g,'\n'),fs.readFileSync(path.join(__dirname,'../LICENSE.txt'),'utf8').replace(/^\uFEFF/,'').replace(/\r\n/g,'\n'));assert.match(text,/利用許諾/);assert.equal(/(?<!\r)\n/.test(text),false);
+ assert.deepEqual([...bytes.subarray(0,2)],[255,254]);const text=bytes.subarray(2).toString('utf16le');assert.equal(text.replace(/\r\n/g,'\n'),fs.readFileSync(path.join(__dirname,'../LICENSE.txt'),'utf8').replace(/^\uFEFF/,'').replace(/\r\n/g,'\n'));assert.match(text,/^MIT License\r\n/);assert.equal(/(?<!\r)\n/.test(text),false);
 });

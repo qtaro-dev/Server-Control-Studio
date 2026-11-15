@@ -47,10 +47,9 @@ test('all nineteen module images are pinned Tabler glyphs; the prior fifteen sta
  assert.equal(byModule.size,19);
  for(const [id,hash] of Object.entries(oldGenericHashes))assert.equal(byId.get(id)?.sha256,hash,id+' existing generic preserved');
  for(const [file,hash] of Object.entries(oldOfficialHashes)){
-  const decision=records.find(r=>r.file===file),item=byModule.get(file),download='tools/release/logo-review-20261031/downloads/'+file;
+  const decision=records.find(r=>r.file===file),item=byModule.get(file);
   assert.ok(item,file+' generic attribution missing');
   assert.equal(decision.originalLogoSha256,hash,file+' historical official image baseline');
-  assert.equal(sha(download),hash,file+' official source baseline');
   assert.notEqual(sha('app/src/modules/'+file),hash,file+' official image removed');
   assert.notEqual(sha('docs/manual/icons/'+item.manualFile),hash,file+' official manual image removed');
  }

@@ -1,15 +1,25 @@
 Server Control Studio 第三者著作権・ライセンス表示
 
-本体の独自利用許諾は第三者の権利を制限しません。
+MITライセンスの対象は自作ソースコードと自作サンプルコードです。第三者ソフトウェア、画像・商標には個別の条件を適用します。
 
 Electron 45.0.0: MIT。全文: third-party/Electron-LICENSE.txt
 Electronに同梱されるChromium/FFmpegおよび依存: third-party/LICENSES.chromium.html
-FFmpeg: Electron配布物の ffmpeg.dll として同梱。LGPL v2.1 or later の条件が適用されます。Chromium FFmpeg fork commit 9db86ce5b5b454dfc96c435f9f0723012980c37f のソース候補、SHA-256、バイナリ識別情報と未確認事項は third-party/FFmpeg-SOURCE.txt を参照してください。対応ソース候補とmanifestは配布ファイルと同じ公開releaseダウンロード領域に置きます。公開URLへの配置・有効なビルド設定・再リンク可能性の確認は継続中です。
+FFmpeg: Electron配布物の ffmpeg.dll として同梱。Chromiumの通知は主な条件をLGPL v2.1 or laterとして示しています。Chromium FFmpeg fork commit 9db86ce5b5b454dfc96c435f9f0723012980c37f のソース候補、SHA-256、バイナリ識別情報と未確認事項は third-party/FFmpeg-SOURCE.txt を参照してください。公開の前に実DLLに対応するソースとビルド手順を確定し、配布ファイルと同じダウンロード領域から取得できるようにします。
 Node.jsと組み込み依存: third-party/Node-LICENSE.txt
 yaml 2.9.1: ISC。全文: third-party/yaml-LICENSE.txt
-NSIS 3.0.4.1 / resources 3.4.1: third-party/NSIS-LICENSE.txt。ビルダーはNSISコアのzlib compressorを指定します。StdUtils (1.1.4.0) のLGPL-2.1-or-later条件と作者のplug-in interface clarificationは third-party/StdUtils-NOTICE.txt、Nsis7z (19.00) と7-Zipのライセンス/source linkは third-party/Nsis7z-NOTICE.txt を参照してください。プラグインDLLの版とハッシュを確認しましたが、公開installerとの包含・source correspondenceは未確認です。
+NSIS 3.0.4.1 / resources 3.4.1: third-party/NSIS-LICENSE.txt。ビルダーはNSISコアのzlib compressorを指定します。StdUtils (1.1.4.0) のLGPL-2.1-or-later条件と作者のplug-in interface clarificationは third-party/StdUtils-NOTICE.txt、Nsis7z (19.00) と7-Zipのライセンス/source linkは third-party/Nsis7z-NOTICE.txt を参照してください。監査対象の両EXE内のStdUtils・Nsis7zは作者配布のDLLと一致しました。対応ソースの提供と利用者による再ビルド手順は確認中です。
 
-著作権者・ライセンス条件は各全文を参照してください。BSD、MIT、ISC、LGPL、その他の条件を独自利用許諾で置き換えません。必要な第三者の改変・再リンク等の権利を制限しません。
+追加のWindowsコンポーネント（配布条件を確認中）
+Installer: WinShell.dllは作者配布の20121005 Unicode版と一致。作者の配布ページはFreeware表記で、第三者の再配布条件は確認中です。UAC.dllはNSIS resources 3.4.1と一致。作者資料のzlib条件に対応するUnicode版の出典と通知を確認中です。
+Portable: resources/elevate.exeはelectron-builderのNSIS 3.0.4.1と一致。個別の再配布条件と対応ソースを確認中です。
+両形式: d3dcompiler_47.dll (10.0.28000.2270) と dxcompiler.dll (1.9.2609.0) はElectron配布元と一致。前者のSDK REDISTとの一致、後者の正確なビルドと適用通知を確認中です。
+https://nsis.sourceforge.io/WinShell_plug-in
+https://nsis.sourceforge.io/UAC_plug-in
+https://github.com/electron-userland/electron-builder-binaries/releases/tag/nsis-3.0.4.1
+https://learn.microsoft.com/en-us/windows/win32/directx-sdk--august-2009-
+https://github.com/microsoft/DirectXShaderCompiler/tree/v1.9.2609
+
+著作権者・ライセンス条件は各全文を参照してください。BSD、MIT、ISC、LGPLなど、各コンポーネントのライセンスが適用されます。必要な第三者の改変・再リンク等の権利を制限しません。
 
 Docker Desktop、Docker Engine、Docker Compose、コンテナイメージ、フォントは同梱せず、利用者環境のものを使います。フォントファイルの同梱はありません。
 DockerおよびDockerのロゴはDocker, Inc.の商標または登録商標です。本ソフトウェアはDocker, Inc.の公式製品ではなく、同社との提携・承認・保証を意味しません。この表示は画像利用の許諾に代わるものではありません。

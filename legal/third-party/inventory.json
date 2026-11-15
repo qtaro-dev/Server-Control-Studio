@@ -1,5 +1,5 @@
 {
-  "application": "0.4.0",
+  "application": "0.1.0",
   "electron": "45.0.0",
   "ffmpeg": {
     "name": "FFmpeg (Electron-bundled ffmpeg.dll)",
@@ -8,7 +8,7 @@
     "sourceRepository": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git",
     "sourceCommit": "9db86ce5b5b454dfc96c435f9f0723012980c37f",
     "sourceArchive": "ffmpeg-chromium-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
-    "sourceArchiveSha256": "bcc75b7de57ef52cb71d6f2ef74a0564e1d7fb8aff9f982695cf28c2c1cec731",
+    "sourceArchiveSha256": "56e099f615fb21debbc932c9277db4d1b1e9d68b177afc389e07816dda0fc28b",
     "binary": "node_modules/electron/dist/ffmpeg.dll",
     "binaryBytes": 3097600,
     "binarySha256": "cdf2b70f0f0a97c9840af1466dd86a90e564c98f6892d783635cf9c3b303d613",
@@ -16,10 +16,10 @@
     "license": "LGPL-2.1-or-later with additional components under other permissive licenses as described in LICENSES.chromium.html",
     "buildFlags": "is_component_ffmpeg=true is documented in Electron v45.0.0 build/args/release.gn; effective GN args for this packaged DLL (including --enable-gpl/--enable-nonfree and external libraries) have not been independently established",
     "relinkability": "DLL is separate in the unpacked application. Modified-DLL replacement and application relaunch were not tested.",
-    "complianceStatus": "pending: matching source provenance identified and source archive staged; effective build configuration, source-to-binary correspondence/rebuild, replacement/relink test, EULA presentation, and public distribution placement still require verification"
+    "complianceStatus": "pending: pinned sources identified; exact binary build, substitute-DLL launch and public source provision remain pending."
   },
   "nsis": {
-    "electronBuilder": "26.18.0",
+    "electronBuilder": "26.18.1",
     "toolset": "NSIS 3.0.4.1 + nsis-resources 3.4.1",
     "cacheObserved": true,
     "toolLicenseSha256": "3c8de989f6504d52f5f8dfafedb6668cd47201f5d01f1319570727c091425dd6",
@@ -73,8 +73,8 @@
     "evidence": "Build configuration identifies nsis-resources-3.4.1 plugins/x86-unicode and StdUtils.nsh; generated installer invokes StdUtils.TestParameter/GetAllParameters. electron-builder template default useZip=false extracts its app archive with Nsis7z::Extract; splash BgImage calls are conditional.",
     "compression": "electron-builder 26.18.0 NsisTarget.js explicitly sets SetCompressor=zlib unless packaging compression is store; this project does not select store. Its NSIS template toggles compression around an external app archive. NSIS bzip2/LZMA core compression modes are not selected by that command; the embedded .7z app payload is decoded by Nsis7z (7-Zip 19.00).",
     "licenses": "NSIS-LICENSE.txt documents core NSIS zlib/libpng, bzip2 and CPL-1.0/LZMA terms and the LZMA linking exception. StdUtils is LGPL-2.1-or-later, version 1.1.4.0 (SHA-256 B72E9013A6204E9F01076DC38DABBF30870D44DFC66962ADBF73619D4331601E); Nsis7z uses 7-Zip 19.00 code and follows 7-Zip source licensing. See StdUtils-NOTICE.txt, Nsis7z-NOTICE.txt and LICENSES.chromium.html for the full LGPL text.",
-    "sourceAccess": "StdUtils tag 1.14 source archive is staged separately with hash in inventory: https://github.com/lordmulder/stdutils/tree/1.14 . Nsis7z official page: https://nsis.sourceforge.io/Nsis7z_plug-in ; 7-Zip 19.00 source: https://www.7-zip.org/a/7z1900-src.7z . The Nsis7z plugin glue source matching the cached DLL was not identified. Exact source correspondence to cached DLLs and delivered executable remains unverified.",
-    "complianceStatus": "pending: plugin payload inclusion, source-version correspondence, verbatim-copy status for StdUtils clarification, and corresponding source distribution for Nsis7z require final verification"
+    "sourceAccess": "StdUtils 1.14 and Nsis7z 19.00 official Unicode DLLs match both v0.1.0 audited payloads. The Nsis7z author archive includes the plug-in source and build files. Official sources: https://github.com/lordmulder/stdutils/releases/tag/1.14 and https://nsis.sourceforge.io/Nsis7z_plug-in.",
+    "complianceStatus": "pending: source provision and rebuild instructions, WinShell/UAC/elevate redistribution review"
   },
   "production": [
     {
@@ -95,16 +95,6 @@
     {
       "file": "yaml-LICENSE.txt",
       "sha256": "5bba27375d93e9119f76c1015f7672cf9ad5f70952296e0842fb2243d6376869"
-    },
-    {
-      "file": "third-party-source/ffmpeg-chromium-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
-      "sha256": "bcc75b7de57ef52cb71d6f2ef74a0564e1d7fb8aff9f982695cf28c2c1cec731",
-      "kind": "separately staged corresponding-source candidate"
-    },
-    {
-      "file": "third-party-source/stdutils-1.14-source.zip",
-      "sha256": "4a4ae0dab5b43f5d1ed02bb807fea77c2ff760e9cf66b853e9180769bbdb38a9",
-      "kind": "official StdUtils 1.14 source archive; source-to-DLL build still unverified"
     },
     {
       "file": "Node-LICENSE.txt",
@@ -140,15 +130,15 @@
     },
     {
       "file": "FFmpeg-SOURCE.txt",
-      "sha256": "6e5e4eef89ce7511d7f6c5c8fbecb9d97f660423d61c67440ad024d32daece8c"
+      "sha256": "39bc91ca1f891f8308a912ab7846ff3de07e5b4c0f3593cf1f2ab17b6e651fbc"
     },
     {
       "file": "StdUtils-NOTICE.txt",
-      "sha256": "e33f1bba4d5be72991e3683048a06b07e503587c6a4e035345a5bc73d46d4c46"
+      "sha256": "420594b07252e36d1c69e8d6cc6ee0f424c78b43331eac88f1ef297014a516ca"
     },
     {
       "file": "Nsis7z-NOTICE.txt",
-      "sha256": "d21b208ab92d1af035377c87a8805b1027f1f2327b6513c1d7b0248514a517ca"
+      "sha256": "67ea77d05d7a52247d7410df6cb1f511269b9b78c57a9a0fcef9f314b64bcc87"
     }
   ],
   "externalNotBundled": [
