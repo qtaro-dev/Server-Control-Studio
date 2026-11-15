@@ -1,0 +1,13 @@
+StdUtils NSIS plug-in
+
+The generated installer script includes StdUtils.nsh and invokes StdUtils.TestParameter and StdUtils.GetAllParameters. The cached x86-unicode DLL reports FileVersion 1.1.4.0 and SHA-256 B72E9013A6204E9F01076DC38DABBF30870D44DFC66962ADBF73619D4331601E.
+
+Copyright (C) 2004-2018 LoRd_MuldeR. The plug-in is licensed under the GNU Lesser General Public License, version 2.1 or (at your option) any later version. The full LGPL text is included in third-party/LICENSES.chromium.html.
+
+The author clarifies that installer executables created with NSIS that use the plug-in strictly through the NSIS plug-in interface and contain/distribute verbatim copies of the plug-in are a "work that uses the Library," not a derivative work. This does not cover modified plug-in code.
+
+Official source tag 1.14 and download: https://github.com/lordmulder/stdutils/tree/1.14
+Prepared source asset: third-party-source/stdutils-1.14-source.zip
+SHA-256: 4a4ae0dab5b43f5d1ed02bb807fea77c2ff760e9cf66b853e9180769bbdb38a9
+
+The cached compiler resource confirms the DLL used at build time, but the released installer binary has not been inspected to verify verbatim embedding. Version 1.14 corresponds by reported file version; source-to-DLL build correspondence and public source-asset distribution remain unverified.

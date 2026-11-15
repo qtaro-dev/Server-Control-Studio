@@ -1,0 +1,93 @@
+{
+  "heading": "モジュール名の商標・汎用アイコンの出典",
+  "thirdPartyHeading": "第三者ライセンス・商標・出典",
+  "copyrightNoticeLabel": "第三者著作権・ライセンス表示",
+  "tablerSourceLabel": "Tabler SVG",
+  "disclaimer": "モジュール一覧には各ソフトウェアを識別する名称と、Tabler Icons由来の汎用ピクトグラムを表示します。各プロジェクトの公式ロゴ画像は使用していません。本ツールは各権利者の公式製品ではなく、提携・承認・保証を意味しません。",
+  "linkLabel": "公式サイト",
+  "openError": "参照先を開けませんでした。",
+  "entries": [
+    {
+      "id": "mark-python",
+      "wordMark": "Python",
+      "website": "https://www.python.org/",
+      "text": "Python is a trademark or registered trademark of the Python Software Foundation. The name is used only to identify the corresponding software module; this tool is not affiliated with or endorsed by the Foundation."
+    },
+    {
+      "id": "mark-wordpress",
+      "wordMark": "WordPress",
+      "website": "https://wordpress.org/",
+      "text": "WordPress is a registered trademark of the WordPress Foundation. The name is used only to identify the corresponding software module; this tool is not affiliated with or endorsed by the Foundation."
+    },
+    {
+      "id": "mark-redmine",
+      "wordMark": "Redmine",
+      "website": "https://www.redmine.org/",
+      "text": "Redmine is used as the name identifying the corresponding software module. This tool is not affiliated with or endorsed by the Redmine project."
+    },
+    {
+      "id": "mark-jenkins",
+      "wordMark": "Jenkins",
+      "website": "https://www.jenkins.io/",
+      "text": "Jenkins is a registered trademark of LF Charities, Inc. The name is used only to identify the corresponding software module; this tool is not affiliated with or endorsed by LF Charities or the Jenkins project."
+    }
+  ],
+  "documents": [
+    {
+      "file": "Electron-LICENSE.txt",
+      "title": "Electron-LICENSE.txt"
+    },
+    {
+      "file": "LICENSES.chromium.html",
+      "title": "LICENSES.chromium.html"
+    },
+    {
+      "file": "yaml-LICENSE.txt",
+      "title": "yaml-LICENSE.txt"
+    },
+    {
+      "file": "Node-LICENSE.txt",
+      "title": "Node-LICENSE.txt"
+    },
+    {
+      "file": "NSIS-LICENSE.txt",
+      "title": "NSIS-LICENSE.txt"
+    },
+    {
+      "file": "7zip-LICENSE.txt",
+      "title": "7zip-LICENSE.txt"
+    },
+    {
+      "file": "CC-BY-SA-2.5.txt",
+      "title": "CC-BY-SA-2.5.txt"
+    },
+    {
+      "file": "CC-BY-SA-3.0.txt",
+      "title": "CC-BY-SA-3.0.txt"
+    },
+    {
+      "file": "MODULE-LOGO-NOTICES.txt",
+      "title": "MODULE-LOGO-NOTICES.txt"
+    },
+    {
+      "file": "MODULE-ICON-NOTICES.txt",
+      "title": "MODULE-ICON-NOTICES.txt"
+    },
+    {
+      "file": "TABLER-ICONS-LICENSE.txt",
+      "title": "TABLER-ICONS-LICENSE.txt"
+    },
+    {
+      "file": "FFmpeg-SOURCE.txt",
+      "title": "FFmpeg-SOURCE.txt"
+    },
+    {
+      "file": "StdUtils-NOTICE.txt",
+      "title": "StdUtils-NOTICE.txt"
+    },
+    {
+      "file": "Nsis7z-NOTICE.txt",
+      "title": "Nsis7z-NOTICE.txt"
+    }
+  ]
+}

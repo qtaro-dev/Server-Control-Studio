@@ -1,0 +1,175 @@
+{
+  "name": "server-control-studio",
+  "version": "0.1.0",
+  "release": {
+    "number": 1
+  },
+  "description": "Electron desktop tool for generating Docker Compose configurations",
+  "main": "main.js",
+  "scripts": {
+    "test": "node tools/release/run-regression.cjs",
+    "start": "node tools/npm/start.cjs",
+    "test:electron": "node test/run-electron.js",
+    "test:docker": "node scripts/docker-validation.cjs --run",
+    "test:docker:generate": "node scripts/docker-validation.cjs --generate-only",
+    "build:win": "electron-builder --win nsis portable --x64 --publish never",
+    "verify:package": "node scripts/verify-package.cjs",
+    "prepare:notices": "node scripts/prepare-notices.cjs",
+    "prepare:public": "node scripts/prepare-public.cjs",
+    "verify:release": "node scripts/verify-release.cjs",
+    "postinstall": "node node_modules/electron/install.js && node tools/release/patch-temp-rimraf.cjs && node tools/npm/receipt.cjs",
+    "preinstall": "node tools/npm/environment.cjs",
+    "pretest": "node tools/npm/environment.cjs",
+    "pretest:electron": "node tools/npm/environment.cjs",
+    "prebuild:win": "node tools/npm/environment.cjs",
+    "prestart": "node tools/npm/environment.cjs --start",
+    "verify:toolchain": "node tools/npm/probe.cjs"
+  },
+  "keywords": [],
+  "author": "qtaro-dev",
+  "license": "SEE LICENSE IN LICENSE.txt",
+  "devDependencies": {
+    "electron": "45.0.0",
+    "electron-builder": "26.18.1"
+  },
+  "engines": {
+    "node": ">=22.12.0",
+    "npm": ">=11.21.1 <12"
+  },
+  "build": {
+    "appId": "dev.qtaro.servercontrolstudio",
+    "asar": true,
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "security.js",
+      "image-catalog.js",
+      "app-info.js",
+      "app-paths.js",
+      "user-manual.js",
+      "package.json",
+      "app/**/*",
+      "!**/*.log",
+      "!**/.env*",
+      "!**/Thumbs.db",
+      "!**/desktop.ini",
+      "!**/.DS_Store"
+    ],
+    "extraResources": [
+      {
+        "from": "docs/manual",
+        "to": "manual",
+        "filter": [
+          "index.html",
+          "recipes.html",
+          "manual.css",
+          "manual.js",
+          "art/**/*.png",
+          "images/**/*.png",
+          "icons/**/*.png",
+          "examples/**/*",
+          "!**/*.log",
+          "!**/Thumbs.db",
+          "!**/desktop.ini",
+          "!**/.DS_Store",
+          "!**/.env",
+          "!**/node_modules/**",
+          "!**/vendor/**",
+          "LICENSE.txt",
+          "THIRD_PARTY_NOTICES.txt",
+          "third-party/**/*",
+          "logo-notices.html"
+        ]
+      },
+      {
+        "from": "LICENSE.txt",
+        "to": "LICENSE.txt"
+      },
+      {
+        "from": "THIRD_PARTY_NOTICES.txt",
+        "to": "THIRD_PARTY_NOTICES.txt"
+      },
+      {
+        "from": "legal/third-party",
+        "to": "third-party",
+        "filter": [
+          "*.txt",
+          "*.html"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "portable",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "signAndEditExecutable": true,
+      "signExecutable": false
+    },
+    "nsis": {
+      "artifactName": "Server.Control.Studio.${version}.Installer.${arch}.${ext}",
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": false,
+      "allowToChangeInstallationDirectory": true,
+      "deleteAppDataOnUninstall": false,
+      "createDesktopShortcut": false,
+      "createStartMenuShortcut": true,
+      "packElevateHelper": false,
+      "license": "build/license-utf16le.txt",
+      "include": "build/installer.nsh"
+    },
+    "portable": {
+      "artifactName": "Server.Control.Studio.${version}.Portable.${arch}.${ext}"
+    },
+    "publish": null,
+    "afterPack": "./build/after-pack.cjs",
+    "beforeBuild": "./build/before-build.cjs"
+  },
+  "dependencies": {
+    "yaml": "2.9.1"
+  },
+  "private": true,
+  "distribution": {
+    "repository": "qtaro-dev/Server-Control-Studio",
+    "projectURL": "https://github.com/qtaro-dev/Server-Control-Studio",
+    "issuesURL": "https://github.com/qtaro-dev/Server-Control-Studio/issues",
+    "copyrightHolder": "qtaro-dev",
+    "licenseDisplayName": "独自利用許諾（LICENSE.txt）",
+    "publicationApproved": false,
+    "assetsApproved": false,
+    "thirdPartyComplianceApproved": false
+  },
+  "productName": "Server Control Studio",
+  "overrides": {
+    "minimatch@10.2.6": "11.0.3",
+    "ejs@3.1.10": "7.0.2",
+    "@electron/asar@3.4.1": "4.3.1",
+    "@electron/asar@4.3.1": {
+      "glob": "14.0.3",
+      "minimatch": "11.0.3"
+    },
+    "@electron/universal@2.0.3": "3.0.6",
+    "temp@0.9.4": {
+      "rimraf": {
+        ".": "6.1.3",
+        "glob": "14.0.3"
+      }
+    },
+    "glob@13.0.6": "14.0.3"
+  },
+  "packageManager": "npm@11.21.1"
+}

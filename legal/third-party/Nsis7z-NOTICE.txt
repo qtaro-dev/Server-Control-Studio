@@ -1,0 +1,9 @@
+Nsis7z NSIS plug-in
+
+The NSIS template uses Nsis7z::Extract for the normal non-ZIP package path. The cached x86-unicode plug-in is nsis7z.dll, FileVersion 19.00.0.0 (based on 7-Zip 19.00); SHA-256 and size are recorded under nsis.unicodePlugins in inventory.json.
+
+The plugin author says it follows the 7-Zip source code license. The project distributes under LGPL terms with additional BSD and unRAR terms for applicable files; see third-party/7zip-LICENSE.txt and the full LGPL text in third-party/LICENSES.chromium.html.
+
+Plugin source download/project page: https://nsis.sourceforge.io/Nsis7z_plug-in
+7-Zip 19.00 source archive: https://www.7-zip.org/a/7z1900-src.7z
+The exact plug-in source revision and source-to-DLL correspondence have not been verified. The source link and version metadata alone do not establish that the released installer has been supplied with matching source.

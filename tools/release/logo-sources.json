@@ -1,0 +1,21 @@
+[
+ {"file":"nginx.png","module":"Nginx","source":"https://nginx.org/","policy":"https://www.f5.com/company/policies/trademarks","finding":"F5の商標条件を確認。ソフトウェアのBSDライセンスをロゴに自動適用しない。"},
+ {"file":"apache.png","module":"Apache HTTP Server","source":"https://httpd.apache.org/","policy":"https://www.apache.org/foundation/marks/faq/","finding":"通常ロゴとPowered byロゴは条件が異なる。出所、帰属、非提携表示と本用途への適合確認が必要。"},
+ {"file":"certbot.png","module":"Certbot","source":"https://certbot.eff.org/","policy":"https://www.eff.org/pages/trademark-and-brand-usage-policy","finding":"EFFのCertbot商標条件を確認。本PNGの取得元と改変の有無が未確認。"},
+ {"file":"laravel_app.png","module":"Laravel","source":"https://laravel.com/","policy":"https://laravel.com/legal/trademark","finding":"コミュニティ利用と許可が必要な利用を区別。無料配布だけで無条件許可としない。"},
+ {"file":"nodejs.png","module":"Node.js","source":"https://nodejs.org/en/about/branding","policy":"https://trademark-policy.openjsf.org/","finding":"公式ロゴ配布とOpenJSの商標条件を照合する必要がある。"},
+ {"file":"python.png","module":"Python","source":"https://www.python.org/community/logos/","policy":"https://www.python.org/psf/trademarks/","finding":"未改変ロゴの指示的利用等の条件あり。公式版との一致、商標・非提携表示を確認する。"},
+ {"file":"mysql.png","module":"MySQL","source":"https://www.mysql.com/","policy":"https://www.mysql.com/about/legal/trademark.html","finding":"Conditional Use Logoに固有の条件あり。現PNGの種類と公式リンク要件等の充足が未確認。"},
+ {"file":"mariadb.png","module":"MariaDB","source":"https://mariadb.org/","policy":"https://mariadb.com/trademarks/","finding":"公式素材の種類とMariaDB商標の帰属を確認。Foundation向け契約を一般許諾と誤認しない。"},
+ {"file":"postgresql.png","module":"PostgreSQL","source":"https://wiki.postgresql.org/wiki/Identity_Guidelines","policy":"https://www.postgresql.org/about/policies/trademarks/","finding":"Slonikは商標。公式素材との一致と関連性・非提携等の条件を確認する。"},
+ {"file":"redis.png","module":"Redis","source":"https://redis.io/brand-guidelines/","policy":"https://redis.io/legal/trademark-policy/","finding":"商標帰属、表示方法、関連製品の表現条件を確認。取得元とロゴの版が未確認。"},
+ {"file":"memcached.png","module":"Memcached","source":"https://memcached.org/","policy":"https://github.com/memcached/memcached/blob/master/COPYING","finding":"コードのライセンスとロゴの許諾は別。今回確認した公式資料では本PNGの固有の再配布許諾を特定できない。"},
+ {"file":"phpmyadmin.png","module":"phpMyAdmin","source":"https://www.phpmyadmin.net/","policy":"https://www.phpmyadmin.net/license/","finding":"ソフトウェアはGPLv2。ロゴ画像の取得元・適用範囲の確認が必要で、アプリ全体へGPLを推測適用しない。"},
+ {"file":"wordpress.png","module":"WordPress","source":"https://wordpress.org/about/logos/","policy":"https://wordpressfoundation.org/trademark-policy/","finding":"WordPress商標方針と公式ロゴを確認。指示的利用の条件と素材の出所を確認する。"},
+ {"file":"redmine.png","module":"Redmine","source":"https://www.redmine.org/projects/redmine/wiki/Logo","policy":"https://creativecommons.org/licenses/by-sa/2.5/","finding":"公式掲載ロゴはMartin Herr、CC BY-SA 2.5。本PNGが当該ロゴ由来か照合し、帰属・変更表示・画像の継承条件を確定する必要がある。"},
+ {"file":"jenkins.png","module":"Jenkins","source":"https://www.jenkins.io/artwork/","policy":"https://www.jenkins.io/press/","finding":"配布アートワークはCC BY-SA 3.0と帰属リンク条件。原型ロゴ/派生版の特定と本PNGの出所を確認する必要がある。"},
+ {"file":"portainer.png","module":"Portainer","source":"https://portainer.io/blog/why-we-rebranded-portainer","policy":"https://www.portainer.io/","finding":"公式ブランド変更を確認。本PNGの旧/新版と個別の再配布・商標許諾は未確定。"},
+ {"file":"rabbitmq.png","module":"RabbitMQ","source":"https://www.rabbitmq.com/","policy":"https://www.rabbitmq.com/trademark-guidelines","finding":"商標帰属表示等の方針あり。公式版との一致とBroadcomへの帰属を確認する。"},
+ {"file":"ollama.png","module":"Ollama","source":"https://github.com/ollama/ollama/blob/main/docs/ollama-logo.svg","policy":"https://github.com/ollama/ollama/blob/main/LICENSE","finding":"公式リポジトリのMITライセンスを確認。本PNGへの変換元・ロゴへの適用・商標条件は別途確認が必要。"},
+ {"file":"steamcmd.png","module":"SteamCMD","source":"https://partner.steamgames.com/doc/marketing/branding","policy":"https://partner.steamgames.com/doc/marketing/branding","finding":"Steamのブランド規則・ロゴ配布元を確認。SteamCMDを識別する本PNGの取得・使用許可は未確認。"}
+]

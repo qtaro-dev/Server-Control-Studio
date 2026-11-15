@@ -1,0 +1,166 @@
+{
+  "application": "0.4.0",
+  "electron": "45.0.0",
+  "ffmpeg": {
+    "name": "FFmpeg (Electron-bundled ffmpeg.dll)",
+    "electron": "45.0.0",
+    "chromium": "156.0.8078.48",
+    "sourceRepository": "https://chromium.googlesource.com/chromium/third_party/ffmpeg.git",
+    "sourceCommit": "9db86ce5b5b454dfc96c435f9f0723012980c37f",
+    "sourceArchive": "ffmpeg-chromium-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
+    "sourceArchiveSha256": "bcc75b7de57ef52cb71d6f2ef74a0564e1d7fb8aff9f982695cf28c2c1cec731",
+    "binary": "node_modules/electron/dist/ffmpeg.dll",
+    "binaryBytes": 3097600,
+    "binarySha256": "cdf2b70f0f0a97c9840af1466dd86a90e564c98f6892d783635cf9c3b303d613",
+    "binaryApiEvidence": "PE export table inspected: 53 FFmpeg av* entry points, including av_read_frame, avcodec_find_decoder, avformat_open_input; av_version_info and avcodec_configuration are not exported, so build flags could not be read through those functions.",
+    "license": "LGPL-2.1-or-later with additional components under other permissive licenses as described in LICENSES.chromium.html",
+    "buildFlags": "is_component_ffmpeg=true is documented in Electron v45.0.0 build/args/release.gn; effective GN args for this packaged DLL (including --enable-gpl/--enable-nonfree and external libraries) have not been independently established",
+    "relinkability": "DLL is separate in the unpacked application. Modified-DLL replacement and application relaunch were not tested.",
+    "complianceStatus": "pending: matching source provenance identified and source archive staged; effective build configuration, source-to-binary correspondence/rebuild, replacement/relink test, EULA presentation, and public distribution placement still require verification"
+  },
+  "nsis": {
+    "electronBuilder": "26.18.0",
+    "toolset": "NSIS 3.0.4.1 + nsis-resources 3.4.1",
+    "cacheObserved": true,
+    "toolLicenseSha256": "3c8de989f6504d52f5f8dfafedb6668cd47201f5d01f1319570727c091425dd6",
+    "unicodePlugins": [
+      {
+        "name": "EmbedHTML.dll",
+        "bytes": 101376,
+        "sha256": "ee95b019b9c8681be56038bf4a4455f74c4f83c287fbaded6b5aa7b5dcf4a38e"
+      },
+      {
+        "name": "INetC.dll",
+        "bytes": 244224,
+        "sha256": "ed04a4823f221e9197b8f3c3da1d6859ff5b176185bde2f1c923a442516c810a"
+      },
+      {
+        "name": "SpiderBanner.dll",
+        "bytes": 9216,
+        "sha256": "996a259e53ca18b89ec36d038c40148957c978c0fd600a268497d4c92f882a93"
+      },
+      {
+        "name": "StdUtils.dll",
+        "bytes": 102400,
+        "sha256": "b72e9013a6204e9f01076dc38dabbf30870d44dfc66962adbf73619d4331601e"
+      },
+      {
+        "name": "UAC.dll",
+        "bytes": 14848,
+        "sha256": "2f7f8fc05dc4fd0d5cda501b47e4433357e887bbfed7292c028d99c73b52dc08"
+      },
+      {
+        "name": "WinShell.dll",
+        "bytes": 3072,
+        "sha256": "9be85b986ea66a6997dde658abe82b3147ed2a1a3dcb784bb5176f41d22815a6"
+      },
+      {
+        "name": "nsProcess.dll",
+        "bytes": 4608,
+        "sha256": "30c6c3dd3cc7fcea6e6081ce821adc7b2888542dae30bf00e881c0a105eb4d11"
+      },
+      {
+        "name": "nsis7z.dll",
+        "bytes": 434176,
+        "sha256": "b393f05e8ff919ef071181050e1873c9a776e1a0ae8329aefff7007d0cadf592"
+      },
+      {
+        "name": "nsisunz.dll",
+        "bytes": 90112,
+        "sha256": "c31b590cba443de87f0f4a81712f0883ac3b506f3868759d918d9a81f84ea922"
+      }
+    ],
+    "evidence": "Build configuration identifies nsis-resources-3.4.1 plugins/x86-unicode and StdUtils.nsh; generated installer invokes StdUtils.TestParameter/GetAllParameters. electron-builder template default useZip=false extracts its app archive with Nsis7z::Extract; splash BgImage calls are conditional.",
+    "compression": "electron-builder 26.18.0 NsisTarget.js explicitly sets SetCompressor=zlib unless packaging compression is store; this project does not select store. Its NSIS template toggles compression around an external app archive. NSIS bzip2/LZMA core compression modes are not selected by that command; the embedded .7z app payload is decoded by Nsis7z (7-Zip 19.00).",
+    "licenses": "NSIS-LICENSE.txt documents core NSIS zlib/libpng, bzip2 and CPL-1.0/LZMA terms and the LZMA linking exception. StdUtils is LGPL-2.1-or-later, version 1.1.4.0 (SHA-256 B72E9013A6204E9F01076DC38DABBF30870D44DFC66962ADBF73619D4331601E); Nsis7z uses 7-Zip 19.00 code and follows 7-Zip source licensing. See StdUtils-NOTICE.txt, Nsis7z-NOTICE.txt and LICENSES.chromium.html for the full LGPL text.",
+    "sourceAccess": "StdUtils tag 1.14 source archive is staged separately with hash in inventory: https://github.com/lordmulder/stdutils/tree/1.14 . Nsis7z official page: https://nsis.sourceforge.io/Nsis7z_plug-in ; 7-Zip 19.00 source: https://www.7-zip.org/a/7z1900-src.7z . The Nsis7z plugin glue source matching the cached DLL was not identified. Exact source correspondence to cached DLLs and delivered executable remains unverified.",
+    "complianceStatus": "pending: plugin payload inclusion, source-version correspondence, verbatim-copy status for StdUtils clarification, and corresponding source distribution for Nsis7z require final verification"
+  },
+  "production": [
+    {
+      "name": "yaml",
+      "version": "2.9.1",
+      "license": "ISC"
+    }
+  ],
+  "notices": [
+    {
+      "file": "Electron-LICENSE.txt",
+      "sha256": "5154e165bd6c2cc0cfbcd8916498c7abab0497923bafcd5cb07673fe8480087d"
+    },
+    {
+      "file": "LICENSES.chromium.html",
+      "sha256": "7dac8267ac6da8d959cfe88f5f055b18a397f10230380b5329125e167bf5639b"
+    },
+    {
+      "file": "yaml-LICENSE.txt",
+      "sha256": "5bba27375d93e9119f76c1015f7672cf9ad5f70952296e0842fb2243d6376869"
+    },
+    {
+      "file": "third-party-source/ffmpeg-chromium-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
+      "sha256": "bcc75b7de57ef52cb71d6f2ef74a0564e1d7fb8aff9f982695cf28c2c1cec731",
+      "kind": "separately staged corresponding-source candidate"
+    },
+    {
+      "file": "third-party-source/stdutils-1.14-source.zip",
+      "sha256": "4a4ae0dab5b43f5d1ed02bb807fea77c2ff760e9cf66b853e9180769bbdb38a9",
+      "kind": "official StdUtils 1.14 source archive; source-to-DLL build still unverified"
+    },
+    {
+      "file": "Node-LICENSE.txt",
+      "sha256": "5888dbb9a1d2b18f2c3e6c5f6af1b39de658372b402a0577b002777f14c62ace"
+    },
+    {
+      "file": "NSIS-LICENSE.txt",
+      "sha256": "3c8de989f6504d52f5f8dfafedb6668cd47201f5d01f1319570727c091425dd6"
+    },
+    {
+      "file": "7zip-LICENSE.txt",
+      "sha256": "7b7022cccdee7bddd07f5fd847161e33551cec411e9c9967c14008ee36d5ce3f"
+    },
+    {
+      "file": "CC-BY-SA-2.5.txt",
+      "sha256": "9643b5d5eba2c4b8afbf0a2e4950bd27aa89a1605bb412538bd8b0b13c0814e7"
+    },
+    {
+      "file": "CC-BY-SA-3.0.txt",
+      "sha256": "3f941b3b89cf7b8370ceb83cc76d2120d471b58735d8ca60238a751a48d7f72f"
+    },
+    {
+      "file": "MODULE-LOGO-NOTICES.txt",
+      "sha256": "f2596cdb1f4f83ae8cb3c8b2ab19fe3132f53af43e12d8b9d4c45493c06fa69e"
+    },
+    {
+      "file": "MODULE-ICON-NOTICES.txt",
+      "sha256": "5c17345e7ba87dc6899ad3d255845a1ae345b1aac2524df15b46a56470675088"
+    },
+    {
+      "file": "TABLER-ICONS-LICENSE.txt",
+      "sha256": "b740a1d46122672da62833e97f7e7c8a13fa85cbc7445b584b297cc00dde93db"
+    },
+    {
+      "file": "FFmpeg-SOURCE.txt",
+      "sha256": "6e5e4eef89ce7511d7f6c5c8fbecb9d97f660423d61c67440ad024d32daece8c"
+    },
+    {
+      "file": "StdUtils-NOTICE.txt",
+      "sha256": "e33f1bba4d5be72991e3683048a06b07e503587c6a4e035345a5bc73d46d4c46"
+    },
+    {
+      "file": "Nsis7z-NOTICE.txt",
+      "sha256": "d21b208ab92d1af035377c87a8805b1027f1f2327b6513c1d7b0248514a517ca"
+    }
+  ],
+  "externalNotBundled": [
+    "Docker Desktop",
+    "Docker Engine",
+    "Docker Compose",
+    "container images",
+    "system fonts"
+  ],
+  "pending": [
+    "AI illustrations and logo provenance/permissions",
+    "FFmpeg effective build configuration, corresponding-source/relink compliance, and public source availability",
+    "NSIS compression/plugin exact component and source obligations"
+  ]
+}

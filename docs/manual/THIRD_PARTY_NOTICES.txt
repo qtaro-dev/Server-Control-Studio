@@ -1,0 +1,17 @@
+Server Control Studio 第三者著作権・ライセンス表示
+
+本体の独自利用許諾は第三者の権利を制限しません。
+
+Electron 45.0.0: MIT。全文: third-party/Electron-LICENSE.txt
+Electronに同梱されるChromium/FFmpegおよび依存: third-party/LICENSES.chromium.html
+FFmpeg: Electron配布物の ffmpeg.dll として同梱。LGPL v2.1 or later の条件が適用されます。Chromium FFmpeg fork commit 9db86ce5b5b454dfc96c435f9f0723012980c37f のソース候補、SHA-256、バイナリ識別情報と未確認事項は third-party/FFmpeg-SOURCE.txt を参照してください。対応ソース候補とmanifestは配布ファイルと同じ公開releaseダウンロード領域に置きます。公開URLへの配置・有効なビルド設定・再リンク可能性の確認は継続中です。
+Node.jsと組み込み依存: third-party/Node-LICENSE.txt
+yaml 2.9.1: ISC。全文: third-party/yaml-LICENSE.txt
+NSIS 3.0.4.1 / resources 3.4.1: third-party/NSIS-LICENSE.txt。ビルダーはNSISコアのzlib compressorを指定します。StdUtils (1.1.4.0) のLGPL-2.1-or-later条件と作者のplug-in interface clarificationは third-party/StdUtils-NOTICE.txt、Nsis7z (19.00) と7-Zipのライセンス/source linkは third-party/Nsis7z-NOTICE.txt を参照してください。プラグインDLLの版とハッシュを確認しましたが、公開installerとの包含・source correspondenceは未確認です。
+
+著作権者・ライセンス条件は各全文を参照してください。BSD、MIT、ISC、LGPL、その他の条件を独自利用許諾で置き換えません。必要な第三者の改変・再リンク等の権利を制限しません。
+
+Docker Desktop、Docker Engine、Docker Compose、コンテナイメージ、フォントは同梱せず、利用者環境のものを使います。フォントファイルの同梱はありません。
+DockerおよびDockerのロゴはDocker, Inc.の商標または登録商標です。本ソフトウェアはDocker, Inc.の公式製品ではなく、同社との提携・承認・保証を意味しません。この表示は画像利用の許諾に代わるものではありません。
+
+画像・ロゴの権利と対応ソース提供等の監査は公開前に完了が必要です。現時点で未確認の素材を配布可能と判断していません。ロゴ等の個別条件は権利者の規定に従います。モジュールの公式ロゴ画像は使用していません。名称の商標・識別情報は third-party/MODULE-LOGO-NOTICES.txt を参照してください。モジュール用Tabler Icons 3.50.0の汎用アウトラインglyph 19点と対応元は third-party/MODULE-ICON-NOTICES.txt、MIT全文は third-party/TABLER-ICONS-LICENSE.txt を参照してください。CCの全文 third-party/CC-BY-SA-2.5.txt と third-party/CC-BY-SA-3.0.txt は過去の素材に関する文書として保持します。現行モジュール図形のライセンスはMITです。
