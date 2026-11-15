@@ -1,7 +1,15 @@
 const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs');
 const pkg=require('../package.json'),{releaseBlockers}=require('../scripts/verify-release.cjs');
 test('release approval cannot be inferred from a successful build or individual checkbox',()=>{
- assert.equal(releaseBlockers().length,3);const copy=structuredClone(pkg);copy.distribution.publicationApproved=true;assert.equal(releaseBlockers(copy).length,2);copy.distribution.assetsApproved=true;copy.distribution.thirdPartyComplianceApproved=true;assert.deepEqual(releaseBlockers(copy),[]);
+ const copy=structuredClone(pkg);
+ for(const key of ["publicationApproved","assetsApproved","thirdPartyComplianceApproved"])copy.distribution[key]=false;
+ assert.equal(releaseBlockers(copy).length,3);
+ copy.distribution.publicationApproved=true;
+ assert.equal(releaseBlockers(copy).length,2);
+ copy.distribution.assetsApproved=true;
+ assert.equal(releaseBlockers(copy).length,1);
+ copy.distribution.thirdPartyComplianceApproved=true;
+ assert.deepEqual(releaseBlockers(copy),[]);
 });
 test('license excludes third-party rights and notices include exact runtime texts',()=>{
  assert.equal(pkg.private,true);assert.equal(pkg.license,'MIT');
