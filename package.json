@@ -149,9 +149,9 @@
     "issuesURL": "https://github.com/qtaro-dev/Server-Control-Studio/issues",
     "copyrightHolder": "qtaro-dev",
     "licenseDisplayName": "MIT License（LICENSE.txt）",
-    "publicationApproved": false,
-    "assetsApproved": false,
-    "thirdPartyComplianceApproved": false
+    "publicationApproved": true,
+    "assetsApproved": true,
+    "thirdPartyComplianceApproved": true
   },
   "productName": "Server Control Studio",
   "overrides": {
