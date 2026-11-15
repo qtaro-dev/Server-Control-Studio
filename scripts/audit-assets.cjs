@@ -1,6 +1,7 @@
 // 19件全てのモジュール画像を、固定されたTabler汎用アイコンとして検証する。
 const fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto'),assert=require('node:assert/strict');
 const root=path.resolve(__dirname,'..');
+const verifyHistoricalLogo=require('./lib/historical-logo-evidence.cjs');
 const decisions=require('../tools/release/logo-decisions.json');
 const baseline=require('../tools/release/logo-review-20261031/asset-inventory-before.json');
 const icons=require('../app/data/module-icon-attributions.json');
@@ -51,7 +52,7 @@ for(const [file,sha256] of Object.entries(oldOfficialHashes)){
  const record=decisions.find(r=>r.file===file),item=replacements.get(file),manual='docs/manual/icons/'+item?.manualFile;
  assert.ok(item,'Missing generic replacement for former official image: '+file);
  assert.equal(record.originalLogoSha256,sha256,'Historical official image baseline changed: '+file);
- assert.equal(hash('tools/release/logo-review-20261031/downloads/'+file),sha256,'Official source evidence changed: '+file);
+ verifyHistoricalLogo(root,file,sha256);
  assert.notEqual(hash('app/src/modules/'+file),sha256,'Former official image remains in app: '+file);
  assert.notEqual(hash(manual),sha256,'Former official image remains in manual: '+file);
 }

@@ -3,6 +3,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
 const asar = require('@electron/asar');
+const verifyHistoricalLogo = require('./lib/historical-logo-evidence.cjs');
 
 async function verify() {
 const root = path.resolve(__dirname, '..');
@@ -64,6 +65,8 @@ const manifest = JSON.parse(asar.extractFile(archive, 'package.json'));
 const source = require('../package.json');
 assert.equal(manifest.version, source.version);
 assert.equal(manifest.productName,source.productName);
+assert.equal(manifest.license,source.license);
+assert.equal(manifest.distribution.licenseDisplayName,source.distribution.licenseDisplayName);
 const sandbox={module:{exports:{}},require:name=>{assert.equal(name,'./package.json');return manifest;}};
 require('node:vm').runInNewContext(asar.extractFile(archive,'app-info.js').toString(),sandbox);
 assert.equal(sandbox.module.exports.describeApp().title,require('../app-info').describeApp().title,'Stripped packaged metadata must still start successfully');
@@ -108,8 +111,8 @@ assert.equal(oldOfficial.length,4,'Exactly four prior official PNGs need a remov
 const bundledPngHashes=new Set(bundled.filter(name=>name.toLowerCase().endsWith('.png')).map(name=>sha(fs.readFileSync(path.join(packagedManual,name)))));
 const appPngHashes=new Set(files.filter(name=>name.toLowerCase().endsWith('.png')).map(name=>sha(asar.extractFile(archive,path.normalize(name)))));
 for(const record of oldOfficial){
- const oldHash=record.originalLogoSha256,download='tools/release/logo-review-20261031/downloads/'+record.file;
- assert.equal(sha(fs.readFileSync(path.join(root,download))),oldHash,record.file+' historical official source changed');
+ const oldHash=record.originalLogoSha256;
+ verifyHistoricalLogo(root,record.file,oldHash);
  assert.ok(!appPngHashes.has(oldHash),'Former official PNG is still in app.asar: '+record.file);
  assert.ok(!bundledPngHashes.has(oldHash),'Former official PNG is still in the packaged manual: '+record.file);
 }
