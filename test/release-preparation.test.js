@@ -6,7 +6,11 @@ test('release approval cannot be inferred from a successful build or individual 
 test('license excludes third-party rights and notices include exact runtime texts',()=>{
  assert.equal(pkg.private,true);assert.equal(pkg.license,'SEE LICENSE IN LICENSE.txt');
  assert.match(fs.readFileSync('LICENSE.txt','utf8'),/第三者ライセンスにより許諾・要求される行為を除きます/);
- for(const [from,to]of [['node_modules/electron/dist/LICENSE','legal/third-party/Electron-LICENSE.txt'],['node_modules/yaml/LICENSE','legal/third-party/yaml-LICENSE.txt'],['node_modules/electron/dist/LICENSES.chromium.html','legal/third-party/LICENSES.chromium.html']])assert.deepEqual(fs.readFileSync(from),fs.readFileSync(to));
+ for(const [from,to]of [['node_modules/electron/dist/LICENSE','legal/third-party/Electron-LICENSE.txt'],['node_modules/yaml/LICENSE','legal/third-party/yaml-LICENSE.txt'],['node_modules/electron/dist/LICENSES.chromium.html','legal/third-party/LICENSES.chromium.html']]){
+  // Git stores LF; Electron's Windows archive uses CRLF for the Chromium notices.
+  const readLicense=file=>fs.readFileSync(file,'utf8').replace(/\r\n/g,'\n');
+  assert.ok(readLicense(from)===readLicense(to), `Bundled license text differs: ${from} vs ${to}`);
+ }
 });
 
 test('About metadata works after builder removes development build configuration',()=>{

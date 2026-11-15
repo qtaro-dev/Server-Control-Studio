@@ -6,7 +6,5 @@ fs.mkdirSync(out,{recursive:true});
 const env={...process.env,DBT_MIGRATION_EVIDENCE:path.join(out,'compatibility'),DBT_TEMP_EVIDENCE:path.join(out,'temp'),DBT_PATCH_SAFETY_EVIDENCE:path.join(out,'patch-safety')};
 const tests=fs.readdirSync(path.join(root,'test')).filter(n=>n.endsWith('.test.js')).map(n=>'test/'+n);
 tests.push('tools/release/dependency-migration-regression.cjs','tools/release/temp-rimraf-regression.cjs','tools/release/patch-safety-regression.cjs');
-// Limit concurrent Node test processes on GitHub-hosted runners to avoid memory exhaustion.
-const ciOptions = process.env.GITHUB_ACTIONS === 'true' ? ['--test-concurrency=1'] : [];
-const r=spawnSync(process.execPath,['--test',...ciOptions,...tests],{cwd:root,env,stdio:'inherit',windowsHide:true});
+const r=spawnSync(process.execPath,['--test',...tests],{cwd:root,env,stdio:'inherit',windowsHide:true});
 if(r.error)console.error(r.error.message);process.exitCode=r.status??1;
