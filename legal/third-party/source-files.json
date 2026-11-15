@@ -1,0 +1,56 @@
+[
+  {
+    "name": "ffmpeg-chromium-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
+    "url": "https://chromium.googlesource.com/chromium/third_party/ffmpeg/+archive/9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz",
+    "size": 18928645,
+    "sha256": "56e099f615fb21debbc932c9277db4d1b1e9d68b177afc389e07816dda0fc28b"
+  },
+  {
+    "name": "StdUtils.2018-10-27.sources.tbz2",
+    "url": "https://github.com/lordmulder/stdutils/releases/download/1.14/StdUtils.2018-10-27.sources.tbz2",
+    "size": 206896,
+    "sha256": "c5e3b1a66219bc9564c2ccc1702691327eecf044ad33404ac268d725d22dca49"
+  },
+  {
+    "name": "Nsis7z_19.00.7z",
+    "url": "https://nsis.sourceforge.io/mediawiki/images/6/69/Nsis7z_19.00.7z",
+    "size": 461078,
+    "sha256": "6f2f3730049926f40442ee0c8b7d3e3dee7ace544d82467ff8059ea3f4201c58"
+  },
+  {
+    "name": "7z1900-src.7z",
+    "url": "https://www.7-zip.org/a/7z1900-src.7z",
+    "size": 1071569,
+    "sha256": "9ba70a5e8485cf9061b30a2a84fe741de5aeb8dd271aab8889da0e9b3bf1868e"
+  },
+  {
+    "name": "electron-v45.0.0-source.tar.gz",
+    "url": "https://codeload.github.com/electron/electron/tar.gz/refs/tags/v45.0.0",
+    "sha256": "0780187f41a38729958187ec4d1d27255732e66387a005c0f4f3451e79cda9be",
+    "size": 20243897
+  },
+  {
+    "name": "chromium-156.0.8078.48-DEPS.txt",
+    "url": "https://chromium.googlesource.com/chromium/src/+/refs/tags/156.0.8078.48/DEPS?format=TEXT",
+    "sha256": "3535b3175635f9984c82a3f0c2a8e70f0ed2cfdb2a352f40446c9fddf2490703",
+    "size": 192396
+  },
+  {
+    "name": "dawn-DEPS.txt",
+    "url": "https://dawn.googlesource.com/dawn.git/+/1da41e55bb915dd03f61028fad64a99ee1786d48/DEPS?format=TEXT",
+    "sha256": "cf584a7a8cfe3534c60ea3c1c16ae732c6e1a8cb393579a3480f6ff36102580c",
+    "size": 40359
+  },
+  {
+    "name": "link_with_loader_path.patch",
+    "url": "https://raw.githubusercontent.com/electron/electron/v45.0.0/patches/ffmpeg/link_with_loader_path.patch",
+    "sha256": "e2f63a2036ffa803db9a50dfec74c4f5628abc476cb44a5ede9d7e775bc7b238",
+    "size": 1219
+  },
+  {
+    "name": "chromium-156.0.8078.48-opus.tar.gz",
+    "url": "https://chromium.googlesource.com/chromium/src/+archive/refs/tags/156.0.8078.48/third_party/opus.tar.gz",
+    "sha256": "d42de1c9b6997ef4114149a7ac8dd8f7030ffae1de8680b46c6ba51fc9ab5c90",
+    "size": 4258554
+  }
+]

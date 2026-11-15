@@ -1,22 +1,17 @@
-FFmpeg source and binary identification (verification record; not a compliance approval)
+FFmpeg: source, build instructions and replacement
 
-The Windows Electron distribution includes ffmpeg.dll as a separate file. Chromium's LICENSES.chromium.html identifies FFmpeg primarily under LGPL v2.1 or later, with separately licensed components.
+This distribution contains the separate ffmpeg.dll supplied with Electron 45.0.0 Windows x64. The vendored Chromium FFmpeg source is LGPL v2.1 or later with separately licensed components. Full notices are in LICENSES.chromium.html.
 
-Electron: 45.0.0; Chromium: 156.0.8078.48
-Chromium FFmpeg source repository: https://chromium.googlesource.com/chromium/third_party/ffmpeg.git
-Pinned commit: 9db86ce5b5b454dfc96c435f9f0723012980c37f
-Source archive candidate: ffmpeg-chromium-9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz
-SHA-256 (locally retrieved upstream archive): 56e099f615fb21debbc932c9277db4d1b1e9d68b177afc389e07816dda0fc28b
-Binary SHA-256: cdf2b70f0f0a97c9840af1466dd86a90e564c98f6892d783635cf9c3b303d613
+Electron official release archive SHA-256: ae53887a23bb640369c93dbd38c408a2af5c0deb86f2fa76c6c244cb444b7f47
+Installed ffmpeg.dll SHA-256: cdf2b70f0f0a97c9840af1466dd86a90e564c98f6892d783635cf9c3b303d613
+FFmpeg source revision: 9db86ce5b5b454dfc96c435f9f0723012980c37f, selected by Chromium 156.0.8078.48.
+The official Electron release job links the DLL built with release.gn (Chrome branding, component FFmpeg, x64). The Chromium generated Chrome/win/x64 configuration sets CONFIG_GPL=0, CONFIG_NONFREE=0, CONFIG_VERSION3=0 and CONFIG_LIBOPUS=1. The standalone Electron ffmpeg asset uses different codec flags.
 
-PE export table inspection found 53 FFmpeg API functions, including av_read_frame, avcodec_find_decoder, and avformat_open_input. The exports do not include av_version_info or avcodec_configuration, so configuration could not be queried through those API functions. Electron v45.0.0 build/args/release.gn sets is_component_ffmpeg=true and describes a shared FFmpeg library for LGPL dynamic linking. Electron's build/args/ffmpeg.gn is for the standalone ffmpeg.zip artifact and sets proprietary_codecs=false; it does not establish the effective configuration of this app's ffmpeg.dll.
+The corresponding source package includes the pinned FFmpeg and Opus sources, Electron source and patch, Chromium DEPS, license notices and build instructions. See SOURCE-BUILD.txt and the source-files.json manifest. Download the source package and checksums alongside the Windows executables:
+https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.0
 
-The versioned Chromium DEPS identifies the FFmpeg revision above. Its upstream Chrome-branded Windows x64 generated config sets CONFIG_GPL=0, CONFIG_NONFREE=0, CONFIG_VERSION3=0 and CONFIG_LIBOPUS=1.
-Electron's common release args set ffmpeg_branding=Chrome and proprietary_codecs=true. These source settings are evidence for the expected build; exact correspondence, dependencies and a substitute-DLL launch still require verification.
-Build inputs: https://github.com/electron/electron/tree/v45.0.0/build/args
-Chromium DEPS: https://chromium.googlesource.com/chromium/src/+/refs/tags/156.0.8078.48/DEPS
-Source archive: https://chromium.googlesource.com/chromium/third_party/ffmpeg/+archive/9db86ce5b5b454dfc96c435f9f0723012980c37f.tar.gz
+Installer: close the application and replace ffmpeg.dll next to Server Control Studio.exe with an ABI-compatible build.
+Portable: extract the .7z app payload from the wrapper using an NSIS-capable archive utility. Extract that payload to a writable folder, replace ffmpeg.dll beside Server Control Studio.exe and run that executable from the folder. The original Portable launcher always uses its own embedded DLL.
 
-Effective flags, external libraries, exact source-to-binary rebuild correspondence, DLL replacement/relaunch, and public download placement remain unverified. Do not treat this record or archive as proof of compliance.
-
-Official project guidance: https://ffmpeg.org/legal.html
+Official release job: https://github.com/electron/electron/actions/runs/39539521491/job/119024612478
+FFmpeg distribution guidance: https://ffmpeg.org/legal.html

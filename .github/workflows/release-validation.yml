@@ -18,6 +18,7 @@ jobs:
       - run: node tools/npm/run.cjs test
       - run: node tools/npm/run.cjs run test:electron
       - run: node tools/npm/run.cjs run prepare:notices
+      - run: node scripts/sync-release-docs.cjs
       - run: node tools/npm/run.cjs run build:win
       - run: node tools/npm/run.cjs run verify:package
       - run: node tools/npm/run.cjs run verify:release

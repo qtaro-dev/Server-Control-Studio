@@ -10,6 +10,8 @@
 - [第三者著作権表示](../../THIRD_PARTY_NOTICES.txt)には、出典、同梱物および残る配布条件を記載しています。
 - `node scripts/prepare-public.cjs <release内の出力親>` は配布文書と配布ファイル用の空ディレクトリをローカルに準備します。
 
+取得済みの対応ソース候補は、`DBT_THIRD_PARTY_SOURCE_DIR` にそのフォルダを指定して配布準備を実行すると、固定SHA-256で検証してステージングします。再ビルド手順は [SOURCE-BUILD.txt](../../legal/third-party/SOURCE-BUILD.txt) を参照してください。
+
 ## EXE公開条件
 
 `node scripts/verify-release.cjs --assert-ready` は、画像の権利、第三者配布条件、最終公開承認が全て確認された時点で成功します。必須CIと検証の成功に加え、対象形式の対応ソース、ビルド情報、ライセンス通知を同じ配布ページから取得できるようにします。

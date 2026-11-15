@@ -4,15 +4,19 @@ MITライセンスの対象は自作ソースコードと自作サンプルコ�
 
 Electron 45.0.0: MIT。全文: third-party/Electron-LICENSE.txt
 Electronに同梱されるChromium/FFmpegおよび依存: third-party/LICENSES.chromium.html
-FFmpeg: Electron配布物の ffmpeg.dll として同梱。Chromiumの通知は主な条件をLGPL v2.1 or laterとして示しています。Chromium FFmpeg fork commit 9db86ce5b5b454dfc96c435f9f0723012980c37f のソース候補、SHA-256、バイナリ識別情報と未確認事項は third-party/FFmpeg-SOURCE.txt を参照してください。公開の前に実DLLに対応するソースとビルド手順を確定し、配布ファイルと同じダウンロード領域から取得できるようにします。
+FFmpeg: Electron配布物の ffmpeg.dll として同梱。Chromiumの通知は主な条件をLGPL v2.1 or laterとして示しています。出荷DLLのSHA-256、対応ソース、再ビルドと差し替えの手順、配布ファイルと同じ取得先は third-party/FFmpeg-SOURCE.txt を参照してください。
 Node.jsと組み込み依存: third-party/Node-LICENSE.txt
 yaml 2.9.1: ISC。全文: third-party/yaml-LICENSE.txt
 NSIS 3.0.4.1 / resources 3.4.1: third-party/NSIS-LICENSE.txt。ビルダーはNSISコアのzlib compressorを指定します。StdUtils (1.1.4.0) のLGPL-2.1-or-later条件と作者のplug-in interface clarificationは third-party/StdUtils-NOTICE.txt、Nsis7z (19.00) と7-Zipのライセンス/source linkは third-party/Nsis7z-NOTICE.txt を参照してください。監査対象の両EXE内のStdUtils・Nsis7zは作者配布のDLLと一致しました。対応ソースの提供と利用者による再ビルド手順は確認中です。
 
+対応ソース候補の取得先と再ビルド情報は third-party/SOURCE-BUILD.txt を参照してください。
+
 追加のWindowsコンポーネント（配布条件を確認中）
-Installer: WinShell.dllは作者配布の20121005 Unicode版と一致。作者の配布ページはFreeware表記で、第三者の再配布条件は確認中です。UAC.dllはNSIS resources 3.4.1と一致。作者資料のzlib条件に対応するUnicode版の出典と通知を確認中です。
-Portable: resources/elevate.exeはelectron-builderのNSIS 3.0.4.1と一致。個別の再配布条件と対応ソースを確認中です。
-両形式: d3dcompiler_47.dll (10.0.28000.2270) と dxcompiler.dll (1.9.2609.0) はElectron配布元と一致。前者のSDK REDISTとの一致、後者の正確なビルドと適用通知を確認中です。
+Installer: ショートカットはNSIS標準のSystemプラグインとWindows Shell APIで処理します。WinShell.dllは同梱対象外です。UAC.dllは作者配布の0.2.4c x86 Unicode版とバイト一致。zlib条件の全文は third-party/UAC-LICENSE.txt を参照してください。
+Portable: この版は自動更新を実装していないため、Windowsビルドで昇格ヘルパーを同梱しません。
+両形式: d3dcompiler_47.dll は Windows 標準のシステムコンポーネントを使用します。詳細は third-party/D3DCOMPILER-SDK.txt を参照してください。
+両形式: dxcompiler.dll (1.9.2609.0) はElectron配布元と一致し、DLL中のソースパスからChromiumのDawnビルドと確認しました。DawnのDEPSが指定するコミットの通知を third-party/DXC-LICENSE.txt と third-party/DXC-THIRD-PARTY.txt に同梱します。
+https://dawn.googlesource.com/dawn.git/+/1da41e55bb915dd03f61028fad64a99ee1786d48/DEPS
 https://nsis.sourceforge.io/WinShell_plug-in
 https://nsis.sourceforge.io/UAC_plug-in
 https://github.com/electron-userland/electron-builder-binaries/releases/tag/nsis-3.0.4.1

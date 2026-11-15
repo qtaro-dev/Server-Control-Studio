@@ -47,3 +47,7 @@ desktop.ini
 
 # Historical logo originals retained locally outside the public source tree.
 /tools/release/logo-review-20261031/downloads/
+
+!/build/shell-shortcuts.nsh
+!/build/shell-shortcut-templates.cjs
+!/build/windows-sdk-redist.json
