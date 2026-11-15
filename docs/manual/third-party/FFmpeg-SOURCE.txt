@@ -8,7 +8,7 @@ FFmpeg source revision: 9db86ce5b5b454dfc96c435f9f0723012980c37f, selected by Ch
 The official Electron release job links the DLL built with release.gn (Chrome branding, component FFmpeg, x64). The Chromium generated Chrome/win/x64 configuration sets CONFIG_GPL=0, CONFIG_NONFREE=0, CONFIG_VERSION3=0 and CONFIG_LIBOPUS=1. The standalone Electron ffmpeg asset uses different codec flags.
 
 The corresponding source package includes the pinned FFmpeg and Opus sources, Electron source and patch, Chromium DEPS, license notices and build instructions. See SOURCE-BUILD.txt and the source-files.json manifest. Download the source package and checksums alongside the Windows executables:
-https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.1
+https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.0
 
 Installer: close the application and replace ffmpeg.dll next to Server Control Studio.exe with an ABI-compatible build.
 Portable: extract the .7z app payload from the wrapper using an NSIS-capable archive utility. Extract that payload to a writable folder, replace ffmpeg.dll beside Server Control Studio.exe and run that executable from the folder. The original Portable launcher always uses its own embedded DLL.

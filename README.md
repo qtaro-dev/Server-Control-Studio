@@ -6,7 +6,7 @@ Docker Composeの構成ファイルをGUIで生成し、保存済みComposeプ�
 
 操作方法は[操作マニュアル](docs/manual/index.html)、構成例は[レシピ集](docs/manual/recipes.html)をご覧ください。開発・検証記録と旧資料は `docs/OLD/` に保管しています。
 
-この作業ツリーはv0.1.1の公開準備版です。バージョンはpackage.json、About表示はapp-info.jsから取得します。`codex/docker-environment-management`では、4番目のDocker環境管理タブなどを実装しています。これは既存のGitHub Release・配布EXEが更新されたという意味ではありません。開発中機能を試す場合は、この作業ツリーから起動してください。
+正式公開版は [v0.1.0](https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.0) です。アプリ内のバージョン表示はパッケージ情報に基づきます。開発ソースから試す場合は、以下の起動手順を参照してください。
 
 生成のみならローカルDockerは不要です。管理タブから実際にビルド・起動するには、Docker CLI・Compose v2と接続可能なDocker Engineが必要です。WindowsではDocker Desktop（WSL 2方式、Linuxコンテナ）を起動しておきます。開発用の[Docker検証CI](docs/OLD/docker-validation-ci.md)はGitHub-hosted runnerで実行する別の仕組みです。
 
@@ -161,7 +161,7 @@ Docker 構成を GUI で生成できるツールがあれば、
 
 本プロジェクトの自作ソースコードと自作サンプルコードは [MITライセンス](LICENSE.txt) で公開します。利用・改変・再配布が可能です。画像、第三者コード・ライブラリ、商標には個別の条件が適用されます。詳しくは [第三者著作権表示](THIRD_PARTY_NOTICES.txt) を参照してください。
 
-Windows x64のInstaller版・Portable版は、配布条件の確認後に [GitHub Releases](https://github.com/qtaro-dev/Server-Control-Studio/releases) から無料配布します。未署名のEXEは、Windows SmartScreen等が警告を表示する場合があります。ダウンロードしたファイルは公開時のSHA-256と照合してください。
+Windows x64のInstaller版・Portable版は、[GitHub Releases](https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.0) から無料で入手できます。未署名のEXEは、Windows SmartScreen等が警告を表示する場合があります。ダウンロードしたファイルは公開時のSHA-256と照合してください。
 
 Server Control StudioはDocker, Inc.と提携していない独立したプロジェクトです。
 
