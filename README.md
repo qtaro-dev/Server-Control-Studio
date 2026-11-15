@@ -1,12 +1,15 @@
 # Server Control Studio
 
-Docker Composeの構成ファイルをGUIで生成し、保存済みComposeプロジェクトの構築を支援する **Electron製デスクトップツール** です。
+Server Control Studioは、Docker ComposeファイルをGUIで生成・保存し、Composeプロジェクトの構築を支援するデスクトップアプリです。
 
-複数のミドルウェア（Web / DB / Cache / 管理ツール等）を選択し、docker-compose.yml を組み立てる用途を想定しています。
+## ダウンロード（Windows x64）
+
+- **[Installer版をダウンロード（通常はこちら）](https://github.com/qtaro-dev/Server-Control-Studio/releases/download/v0.1.0/Server.Control.Studio.0.1.0.Installer.x64.exe)** — Windowsにインストールして使う版です。スタートメニューから起動でき、Windowsの設定からアンインストールできます。
+- **[Portable版をダウンロード](https://github.com/qtaro-dev/Server-Control-Studio/releases/download/v0.1.0/Server.Control.Studio.0.1.0.Portable.x64.exe)** — インストール不要です。ダウンロードしたEXEをそのまま起動できます。
+
+[最新版のReleaseページ（v0.1.0）](https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.0)
 
 操作方法は[操作マニュアル](docs/manual/index.html)、構成例は[レシピ集](docs/manual/recipes.html)をご覧ください。開発・検証記録と旧資料は `docs/OLD/` に保管しています。
-
-正式公開版は [v0.1.0](https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.0) です。アプリ内のバージョン表示はパッケージ情報に基づきます。開発ソースから試す場合は、以下の起動手順を参照してください。
 
 生成のみならローカルDockerは不要です。管理タブから実際にビルド・起動するには、Docker CLI・Compose v2と接続可能なDocker Engineが必要です。WindowsではDocker Desktop（WSL 2方式、Linuxコンテナ）を起動しておきます。開発用の[Docker検証CI](docs/OLD/docker-validation-ci.md)はGitHub-hosted runnerで実行する別の仕組みです。
 
@@ -161,7 +164,9 @@ Docker 構成を GUI で生成できるツールがあれば、
 
 本プロジェクトの自作ソースコードと自作サンプルコードは [MITライセンス](LICENSE.txt) で公開します。利用・改変・再配布が可能です。画像、第三者コード・ライブラリ、商標には個別の条件が適用されます。詳しくは [第三者著作権表示](THIRD_PARTY_NOTICES.txt) を参照してください。
 
-Windows x64のInstaller版・Portable版は、[GitHub Releases](https://github.com/qtaro-dev/Server-Control-Studio/releases/tag/v0.1.0) から無料で入手できます。未署名のEXEは、Windows SmartScreen等が警告を表示する場合があります。ダウンロードしたファイルは公開時のSHA-256と照合してください。
+[第三者ソフトウェアの対応ソース・関連資料（ThirdPartySource.zip）](https://github.com/qtaro-dev/Server-Control-Studio/releases/download/v0.1.0/Server.Control.Studio.0.1.0.ThirdPartySource.zip) には、FFmpeg（LGPL v2.1以降）の対応ソース、パッチ、再ビルド・差し替え手順と第三者ライセンス通知が含まれています。通常のアプリ利用には、このZIPのダウンロードは不要です。
+
+未署名のEXEは、Windows SmartScreenなどが警告を表示する場合があります。ダウンロードしたファイルは、Releaseに添付のSHA256SUMS.txtで照合できます。
 
 Server Control StudioはDocker, Inc.と提携していない独立したプロジェクトです。
 
