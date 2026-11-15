@@ -7,11 +7,11 @@ Electronに同梱されるChromium/FFmpegおよび依存: third-party/LICENSES.c
 FFmpeg: Electron配布物の ffmpeg.dll として同梱。Chromiumの通知は主な条件をLGPL v2.1 or laterとして示しています。出荷DLLのSHA-256、対応ソース、再ビルドと差し替えの手順、配布ファイルと同じ取得先は third-party/FFmpeg-SOURCE.txt を参照してください。
 Node.jsと組み込み依存: third-party/Node-LICENSE.txt
 yaml 2.9.1: ISC。全文: third-party/yaml-LICENSE.txt
-NSIS 3.0.4.1 / resources 3.4.1: third-party/NSIS-LICENSE.txt。ビルダーはNSISコアのzlib compressorを指定します。StdUtils (1.1.4.0) のLGPL-2.1-or-later条件と作者のplug-in interface clarificationは third-party/StdUtils-NOTICE.txt、Nsis7z (19.00) と7-Zipのライセンス/source linkは third-party/Nsis7z-NOTICE.txt を参照してください。監査対象の両EXE内のStdUtils・Nsis7zは作者配布のDLLと一致しました。対応ソースの提供と利用者による再ビルド手順は確認中です。
+NSIS 3.0.4.1 / resources 3.4.1: third-party/NSIS-LICENSE.txt。ビルダーはNSISコアのzlib compressorを指定します。StdUtils (1.1.4.0) のLGPL-2.1-or-later条件と作者のplug-in interface clarificationは third-party/StdUtils-NOTICE.txt、Nsis7z (19.00) と7-Zipのライセンス/source linkは third-party/Nsis7z-NOTICE.txt を参照してください。監査対象の両EXE内のStdUtils・Nsis7zは作者配布のDLLと一致しました。対応ソースと再ビルド手順は、GitHub Release の対応ソース ZIP に収録しています。
 
-対応ソース候補の取得先と再ビルド情報は third-party/SOURCE-BUILD.txt を参照してください。
+公開済みの対応ソースの取得先と再ビルド情報は third-party/SOURCE-BUILD.txt を参照してください。
 
-追加のWindowsコンポーネント（配布条件を確認中）
+Windowsコンポーネント
 Installer: ショートカットはNSIS標準のSystemプラグインとWindows Shell APIで処理します。WinShell.dllは同梱対象外です。UAC.dllは作者配布の0.2.4c x86 Unicode版とバイト一致。zlib条件の全文は third-party/UAC-LICENSE.txt を参照してください。
 Portable: この版は自動更新を実装していないため、Windowsビルドで昇格ヘルパーを同梱しません。
 両形式: d3dcompiler_47.dll は Windows 標準のシステムコンポーネントを使用します。詳細は third-party/D3DCOMPILER-SDK.txt を参照してください。
