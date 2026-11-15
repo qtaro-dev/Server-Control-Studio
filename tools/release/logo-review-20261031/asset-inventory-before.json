@@ -1,0 +1,265 @@
+{
+  "originals": [
+    {
+      "file": "image/AIペンギンと Docker クジラの大冒険.png",
+      "sha256": "1690b43494ef7d3376065a176a4a30c869cb607d40d2373c82f8f08dbd3f0fa8"
+    },
+    {
+      "file": "image/Dockerコンテナの3Dイラストセット.png",
+      "sha256": "7d77d2ce4c0e14db9c5f217eda2178a42759130c3786d06c30a454d63cf7c29b"
+    },
+    {
+      "file": "image/Dockerコンテナを渡すAIペンギンロボットたち.png",
+      "sha256": "0465865eae0e90adb4dff233c0a66c51126b23538fa6dd238aeacdf14762dd4f"
+    },
+    {
+      "file": "image/コンテナを運ぶロボペンギン (1).png",
+      "sha256": "d36b15169fdaad908cb56e9ad9876a9bf4397372ad4dafa0aac93b40cb641e31"
+    },
+    {
+      "file": "image/コンテナを運ぶロボペンギン.png",
+      "sha256": "d36b15169fdaad908cb56e9ad9876a9bf4397372ad4dafa0aac93b40cb641e31"
+    },
+    {
+      "file": "image/ドッカー便を受け取るAIペンギン.png",
+      "sha256": "53a5793dd8c92a5f475ab6a277970fbae9f6f428881e5e8a41058595f9172921"
+    },
+    {
+      "file": "image/ペンギンとDockerホエールの港湾コンテナ便.png",
+      "sha256": "3f69f22339dbf1b45305b41469d102e86ad919384c1ad173c926e34ba18937bb"
+    },
+    {
+      "file": "image/積み重ねられたDockerコンテナ_gbc.png",
+      "sha256": "1174e5f4cde9f6d1008859307c4eafa22a2b31ab57b2b89ca921f927a2b48960"
+    },
+    {
+      "file": "image/青いDockerロゴ入り輸送コンテナ.png",
+      "sha256": "7761424723883eacb3b0303f08751d9d53b2f7ab68a72d1feeaca09295b9d2d7"
+    }
+  ],
+  "art": [
+    {
+      "file": "app/assets/about-penguin-whale.png",
+      "sha256": "1690b43494ef7d3376065a176a4a30c869cb607d40d2373c82f8f08dbd3f0fa8",
+      "matches": [
+        "image/AIペンギンと Docker クジラの大冒険.png"
+      ]
+    },
+    {
+      "file": "docs/manual/art/carry.png",
+      "sha256": "d36b15169fdaad908cb56e9ad9876a9bf4397372ad4dafa0aac93b40cb641e31",
+      "matches": [
+        "image/コンテナを運ぶロボペンギン (1).png",
+        "image/コンテナを運ぶロボペンギン.png"
+      ]
+    },
+    {
+      "file": "docs/manual/art/container.png",
+      "sha256": "7761424723883eacb3b0303f08751d9d53b2f7ab68a72d1feeaca09295b9d2d7",
+      "matches": [
+        "image/青いDockerロゴ入り輸送コンテナ.png"
+      ]
+    },
+    {
+      "file": "docs/manual/art/cover.png",
+      "sha256": "1690b43494ef7d3376065a176a4a30c869cb607d40d2373c82f8f08dbd3f0fa8",
+      "matches": [
+        "image/AIペンギンと Docker クジラの大冒険.png"
+      ]
+    },
+    {
+      "file": "docs/manual/art/handoff.png",
+      "sha256": "0465865eae0e90adb4dff233c0a66c51126b23538fa6dd238aeacdf14762dd4f",
+      "matches": [
+        "image/Dockerコンテナを渡すAIペンギンロボットたち.png"
+      ]
+    },
+    {
+      "file": "docs/manual/art/harbor.png",
+      "sha256": "3f69f22339dbf1b45305b41469d102e86ad919384c1ad173c926e34ba18937bb",
+      "matches": [
+        "image/ペンギンとDockerホエールの港湾コンテナ便.png"
+      ]
+    },
+    {
+      "file": "docs/manual/art/stack.png",
+      "sha256": "1174e5f4cde9f6d1008859307c4eafa22a2b31ab57b2b89ca921f927a2b48960",
+      "matches": [
+        "image/積み重ねられたDockerコンテナ_gbc.png"
+      ]
+    }
+  ],
+  "logos": [
+    {
+      "file": "app/src/modules/nginx.png",
+      "module": "Nginx",
+      "source": "https://nginx.org/",
+      "policy": "https://www.f5.com/company/policies/trademarks",
+      "finding": "F5の商標条件を確認。ソフトウェアのBSDライセンスをロゴに自動適用しない。",
+      "sha256": "7c661f504bee51b8c0e0a11870033f325450d955ea19cf0ace1075e42a17a1f6",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/apache.png",
+      "module": "Apache HTTP Server",
+      "source": "https://httpd.apache.org/",
+      "policy": "https://www.apache.org/foundation/marks/faq/",
+      "finding": "通常ロゴとPowered byロゴは条件が異なる。出所、帰属、非提携表示と本用途への適合確認が必要。",
+      "sha256": "2a93479257a2fb7bfb1d120751344386eaff32d16e084ebb6160df60a4d166fe",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/certbot.png",
+      "module": "Certbot",
+      "source": "https://certbot.eff.org/",
+      "policy": "https://www.eff.org/pages/trademark-and-brand-usage-policy",
+      "finding": "EFFのCertbot商標条件を確認。本PNGの取得元と改変の有無が未確認。",
+      "sha256": "09764348ab3063fec34ca3a99687ef6a777c7d4f019ae254487c9e9d261438cf",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/laravel_app.png",
+      "module": "Laravel",
+      "source": "https://laravel.com/",
+      "policy": "https://laravel.com/legal/trademark",
+      "finding": "コミュニティ利用と許可が必要な利用を区別。無料配布だけで無条件許可としない。",
+      "sha256": "57bd82fa53354527dcbc5714d2594e8afb7ce5e94fb57e998fe96ef971e5c6c3",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/nodejs.png",
+      "module": "Node.js",
+      "source": "https://nodejs.org/en/about/branding",
+      "policy": "https://trademark-policy.openjsf.org/",
+      "finding": "公式ロゴ配布とOpenJSの商標条件を照合する必要がある。",
+      "sha256": "34c32fd7aa1ea5306df8691b0333f25f6acbf66e625477c27d6b28165626776f",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/python.png",
+      "module": "Python",
+      "source": "https://www.python.org/community/logos/",
+      "policy": "https://www.python.org/psf/trademarks/",
+      "finding": "未改変ロゴの指示的利用等の条件あり。公式版との一致、商標・非提携表示を確認する。",
+      "sha256": "04059a6fe070c0f098eaaf5d809f474994bd3b1d6b52aaa9308b90f9f86b1336",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/mysql.png",
+      "module": "MySQL",
+      "source": "https://www.mysql.com/",
+      "policy": "https://www.mysql.com/about/legal/trademark.html",
+      "finding": "Conditional Use Logoに固有の条件あり。現PNGの種類と公式リンク要件等の充足が未確認。",
+      "sha256": "1f64e6389be08fca78ed081f872ee1d0578a6a4fdd5691badacd7dee0dcc7aaf",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/mariadb.png",
+      "module": "MariaDB",
+      "source": "https://mariadb.org/",
+      "policy": "https://mariadb.com/trademarks/",
+      "finding": "公式素材の種類とMariaDB商標の帰属を確認。Foundation向け契約を一般許諾と誤認しない。",
+      "sha256": "f11465a05b8dc8b3ad57634b92c61cbb5534dc6afaf6df6f4bf211f73782003b",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/postgresql.png",
+      "module": "PostgreSQL",
+      "source": "https://wiki.postgresql.org/wiki/Identity_Guidelines",
+      "policy": "https://www.postgresql.org/about/policies/trademarks/",
+      "finding": "Slonikは商標。公式素材との一致と関連性・非提携等の条件を確認する。",
+      "sha256": "2dd530e285fe6e369b5caf0add2678678654206bd9c9f42a7087aca6376272ce",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/redis.png",
+      "module": "Redis",
+      "source": "https://redis.io/brand-guidelines/",
+      "policy": "https://redis.io/legal/trademark-policy/",
+      "finding": "商標帰属、表示方法、関連製品の表現条件を確認。取得元とロゴの版が未確認。",
+      "sha256": "8cadaafcdea603277af4bbc1036949d834adb70dece4a4cf342f7da5d1587b9b",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/memcached.png",
+      "module": "Memcached",
+      "source": "https://memcached.org/",
+      "policy": "https://github.com/memcached/memcached/blob/master/COPYING",
+      "finding": "コードのライセンスとロゴの許諾は別。今回確認した公式資料では本PNGの固有の再配布許諾を特定できない。",
+      "sha256": "70144e880da2214a1d2a37fc97a5fcaecbb3ad02d1cd7ed216cec1ee8d193a17",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/phpmyadmin.png",
+      "module": "phpMyAdmin",
+      "source": "https://www.phpmyadmin.net/",
+      "policy": "https://www.phpmyadmin.net/license/",
+      "finding": "ソフトウェアはGPLv2。ロゴ画像の取得元・適用範囲の確認が必要で、アプリ全体へGPLを推測適用しない。",
+      "sha256": "b2d864ab8b406ac1e252e045f49047f8dcc53af9d3f34971310a35833af65cdd",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/wordpress.png",
+      "module": "WordPress",
+      "source": "https://wordpress.org/about/logos/",
+      "policy": "https://wordpressfoundation.org/trademark-policy/",
+      "finding": "WordPress商標方針と公式ロゴを確認。指示的利用の条件と素材の出所を確認する。",
+      "sha256": "a40623acd49b4a89a21d425759c6d64ddf59df912328a283e6a5989b5f592394",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/redmine.png",
+      "module": "Redmine",
+      "source": "https://www.redmine.org/projects/redmine/wiki/Logo",
+      "policy": "https://creativecommons.org/licenses/by-sa/2.5/",
+      "finding": "公式掲載ロゴはMartin Herr、CC BY-SA 2.5。本PNGが当該ロゴ由来か照合し、帰属・変更表示・画像の継承条件を確定する必要がある。",
+      "sha256": "02ddd6bf405374bbeb9a0e3c9b14c3e58722c745b95ac2e58bf8e8faa49b53d5",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/jenkins.png",
+      "module": "Jenkins",
+      "source": "https://www.jenkins.io/artwork/",
+      "policy": "https://www.jenkins.io/press/",
+      "finding": "配布アートワークはCC BY-SA 3.0と帰属リンク条件。原型ロゴ/派生版の特定と本PNGの出所を確認する必要がある。",
+      "sha256": "ad102f621adbe51c50803ba7e7b51d8aec9e63f3ed0e2ce373693f764ffe5ded",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/portainer.png",
+      "module": "Portainer",
+      "source": "https://portainer.io/blog/why-we-rebranded-portainer",
+      "policy": "https://www.portainer.io/",
+      "finding": "公式ブランド変更を確認。本PNGの旧/新版と個別の再配布・商標許諾は未確定。",
+      "sha256": "7ff94ddf642b9390937eafb69c64124111304da3d56545faa26e1c1fdedca3da",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/rabbitmq.png",
+      "module": "RabbitMQ",
+      "source": "https://www.rabbitmq.com/",
+      "policy": "https://www.rabbitmq.com/trademark-guidelines",
+      "finding": "商標帰属表示等の方針あり。公式版との一致とBroadcomへの帰属を確認する。",
+      "sha256": "6c659e6d10fa145234465a99f855d6258e6b339f7cfa21635d19b6846e1be01a",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/ollama.png",
+      "module": "Ollama",
+      "source": "https://github.com/ollama/ollama/blob/main/docs/ollama-logo.svg",
+      "policy": "https://github.com/ollama/ollama/blob/main/LICENSE",
+      "finding": "公式リポジトリのMITライセンスを確認。本PNGへの変換元・ロゴへの適用・商標条件は別途確認が必要。",
+      "sha256": "0af8df2c2448897eaca98752a51d3c8e60d477c5fad11cbee0c676701e502460",
+      "approved": false
+    },
+    {
+      "file": "app/src/modules/steamcmd.png",
+      "module": "SteamCMD",
+      "source": "https://partner.steamgames.com/doc/marketing/branding",
+      "policy": "https://partner.steamgames.com/doc/marketing/branding",
+      "finding": "Steamのブランド規則・ロゴ配布元を確認。SteamCMDを識別する本PNGの取得・使用許可は未確認。",
+      "sha256": "6989e87100c5cbf4d45ec9e58a40bb29f6674ff28715d11373d1e42efe55c2de",
+      "approved": false
+    }
+  ]
+}

@@ -1,0 +1,8 @@
+{
+  "tempVersion": "0.9.4",
+  "rimrafVersion": "6.1.3",
+  "originalSha256": "ab00e9972ccbd639a4558519f40ad6839cb2c616b3da6cb9c12dea2828c6c9c9",
+  "patchedSha256": "31fe7c8ea55bd8f1abc1dc870b9ce53dd6010d4974e934c2a1865088e77b75a2",
+  "originalText": "let rimraf     = require('rimraf');",
+  "replacementText": "// rimraf 6 uses promises/named exports; preserve temp 0.9.4 callback and sync APIs.\nconst rimrafApi = require('rimraf');\nlet rimraf = (target, options, callback) => {\n  rimrafApi.rimraf(target, { glob: false, maxRetries: options.maxBusyTries })\n    .then(() => callback(null), callback);\n};\nrimraf.sync = (target, options) => rimrafApi.rimrafSync(target, { glob: false, maxRetries: options.maxBusyTries });"
+}

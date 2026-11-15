@@ -1,0 +1,146 @@
+{
+  "capturedFrom": {
+    "electronBuilder": "26.18.0",
+    "asar": "3.4.1",
+    "ejs": "3.1.10",
+    "temp": "0.9.4"
+  },
+  "contents": {
+    "main.js": "module.exports=1;",
+    "LICENSE.txt": "fixture license",
+    "app/src/a.js": "const x=1;",
+    "app/src/a.test.js": "test fixture",
+    "app/src/data.json": "{}",
+    "app/src/module name.js": "space fixture",
+    "app/src/日本語.js": "unicode fixture",
+    "app/src/.hidden.js": "dot fixture",
+    "app/src/debug.log": "fixture log",
+    "app/src/.env": "NOT A SECRET",
+    "app/src/key.pem": "NOT A KEY",
+    "app/src/key.key": "NOT A KEY",
+    "app/src/Thumbs.db": "fixture junk",
+    "app/src/secret/data.json": "fixture ignored",
+    "app/src/modules/icon.png": "fixture icon",
+    "test/a.js": "test fixture",
+    "native/addon.node": "NOT A REAL NATIVE BINARY"
+  },
+  "matches": [
+    {
+      "patterns": [
+        "**/*",
+        "!**/*.log",
+        "!**/.env*",
+        "!**/Thumbs.db"
+      ],
+      "selected": [
+        "LICENSE.txt",
+        "app/src/.hidden.js",
+        "app/src/a.js",
+        "app/src/a.test.js",
+        "app/src/data.json",
+        "app/src/key.key",
+        "app/src/key.pem",
+        "app/src/module name.js",
+        "app/src/modules/icon.png",
+        "app/src/secret/data.json",
+        "app/src/日本語.js",
+        "main.js",
+        "native/addon.node",
+        "test/a.js"
+      ]
+    },
+    {
+      "patterns": [
+        "app/**/*",
+        "!**/secret/**",
+        "!**/*.key"
+      ],
+      "selected": [
+        "app/src/.env",
+        "app/src/.hidden.js",
+        "app/src/Thumbs.db",
+        "app/src/a.js",
+        "app/src/a.test.js",
+        "app/src/data.json",
+        "app/src/debug.log",
+        "app/src/key.pem",
+        "app/src/module name.js",
+        "app/src/modules/icon.png",
+        "app/src/日本語.js"
+      ]
+    },
+    {
+      "patterns": [
+        "**/*.{js,json,png}",
+        "!test/**"
+      ],
+      "selected": [
+        "app/src/.hidden.js",
+        "app/src/a.js",
+        "app/src/a.test.js",
+        "app/src/data.json",
+        "app/src/module name.js",
+        "app/src/modules/icon.png",
+        "app/src/secret/data.json",
+        "app/src/日本語.js",
+        "main.js"
+      ]
+    },
+    {
+      "patterns": [
+        "LICENSE.txt",
+        "main.js",
+        "app/src/modules"
+      ],
+      "selected": [
+        "LICENSE.txt",
+        "app/src/modules/icon.png",
+        "main.js"
+      ]
+    },
+    {
+      "patterns": [
+        "app/**/!(*.test).js"
+      ],
+      "selected": [
+        "app/src/.hidden.js",
+        "app/src/a.js",
+        "app/src/module name.js",
+        "app/src/日本語.js"
+      ]
+    }
+  ],
+  "ejsCases": [
+    {
+      "template": "Hello <%= name %>",
+      "data": {
+        "name": "<テスト&>"
+      },
+      "result": "Hello &lt;テスト&amp;&gt;"
+    },
+    {
+      "template": "<% for(const x of items){ %><%- x %>|<% } %>",
+      "data": {
+        "items": [
+          "a",
+          "日本語",
+          "&"
+        ]
+      },
+      "result": "a|日本語|&|"
+    },
+    {
+      "template": "<% if(ok){ %>enabled<% }else{ %>disabled<% } %>",
+      "data": {
+        "ok": false
+      },
+      "result": "disabled"
+    }
+  ],
+  "tempSource": "let fs   = require('fs');\nlet path = require('path');\nlet cnst = require('constants');\n\nlet os         = require('os');\nlet rimraf     = require('rimraf');\nlet mkdirp     = require('mkdirp');\nlet osTmpdir   = require('os').tmpdir();\n\nconst rimrafSync = rimraf.sync;\n\n//== helpers\n//\nlet dir = path.resolve(os.tmpdir());\n\nlet RDWR_EXCL = cnst.O_CREAT | cnst.O_TRUNC | cnst.O_RDWR | cnst.O_EXCL;\n\nlet promisify = function(callback) {\n  if (typeof callback === 'function') {\n    return [undefined, callback];\n  }\n\n  var promiseCallback;\n  var promise = new Promise(function(resolve, reject) {\n    promiseCallback = function() {\n      var args = Array.from(arguments);\n      var err = args.shift();\n\n      process.nextTick(function() {\n        if (err) {\n          reject(err);\n        } else if (args.length === 1) {\n          resolve(args[0]);\n        } else {\n          resolve(args);\n        }\n      });\n    };\n  });\n\n  return [promise, promiseCallback];\n};\n\nvar generateName = function(rawAffixes, defaultPrefix) {\n  var affixes = parseAffixes(rawAffixes, defaultPrefix);\n  var now = new Date();\n  var name = [affixes.prefix,\n              now.getFullYear(), now.getMonth(), now.getDate(),\n              '-',\n              process.pid,\n              '-',\n              (Math.random() * 0x100000000 + 1).toString(36),\n              affixes.suffix].join('');\n  return path.join(affixes.dir || dir, name);\n};\n\nvar parseAffixes = function(rawAffixes, defaultPrefix) {\n  var affixes = {prefix: null, suffix: null};\n  if(rawAffixes) {\n    switch (typeof(rawAffixes)) {\n    case 'string':\n      affixes.prefix = rawAffixes;\n      break;\n    case 'object':\n      affixes = rawAffixes;\n      break;\n    default:\n      throw new Error(\"Unknown affix declaration: \" + affixes);\n    }\n  } else {\n    affixes.prefix = defaultPrefix;\n  }\n  return affixes;\n};\n\n/* -------------------------------------------------------------------------\n * Don't forget to call track() if you want file tracking and exit handlers!\n * -------------------------------------------------------------------------\n * When any temp file or directory is created, it is added to filesToDelete\n * or dirsToDelete. The first time any temp file is created, a listener is\n * added to remove all temp files and directories at exit.\n */\nvar tracking = false;\nvar track = function(value) {\n  tracking = (value !== false);\n  return module.exports; // chainable\n};\nvar exitListenerAttached = false;\nvar filesToDelete = [];\nvar dirsToDelete = [];\n\nfunction deleteFileOnExit(filePath) {\n  if (!tracking) return false;\n  attachExitListener();\n  filesToDelete.push(filePath);\n}\n\nfunction deleteDirOnExit(dirPath) {\n  if (!tracking) return false;\n  attachExitListener();\n  dirsToDelete.push(dirPath);\n}\n\nfunction attachExitListener() {\n  if (!tracking) return false;\n  if (!exitListenerAttached) {\n    process.addListener('exit', function() {\n        try {\n            cleanupSync();\n        } catch(err) {\n            console.warn(\"Fail to clean temporary files on exit : \", err);\n            throw err;\n        }\n    });\n    exitListenerAttached = true;\n  }\n}\n\nfunction cleanupFilesSync() {\n  if (!tracking) {\n    return false;\n  }\n  var count = 0;\n  var toDelete;\n  while ((toDelete = filesToDelete.shift()) !== undefined) {\n    rimrafSync(toDelete, { maxBusyTries: 6 });\n    count++;\n  }\n  return count;\n}\n\nfunction cleanupFiles(callback) {\n  var p = promisify(callback);\n  var promise = p[0];\n  callback = p[1];\n\n  if (!tracking) {\n    callback(new Error(\"not tracking\"));\n    return promise;\n  }\n  var count = 0;\n  var left = filesToDelete.length;\n  if (!left) {\n    callback(null, count);\n    return promise;\n  }\n  var toDelete;\n  var rimrafCallback = function(err) {\n    if (!left) {\n      // Prevent processing if aborted\n      return;\n    }\n    if (err) {\n      // This shouldn't happen; pass error to callback and abort\n      // processing\n      callback(err);\n      left = 0;\n      return;\n    } else {\n      count++;\n    }\n    left--;\n    if (!left) {\n      callback(null, count);\n    }\n  };\n  while ((toDelete = filesToDelete.shift()) !== undefined) {\n    rimraf(toDelete, { maxBusyTries: 6 }, rimrafCallback);\n  }\n  return promise;\n}\n\nfunction cleanupDirsSync() {\n  if (!tracking) {\n    return false;\n  }\n  var count = 0;\n  var toDelete;\n  while ((toDelete = dirsToDelete.shift()) !== undefined) {\n    rimrafSync(toDelete, { maxBusyTries: 6 });\n    count++;\n  }\n  return count;\n}\n\nfunction cleanupDirs(callback) {\n  var p = promisify(callback);\n  var promise = p[0];\n  callback = p[1];\n\n  if (!tracking) {\n    callback(new Error(\"not tracking\"));\n    return promise;\n  }\n  var count = 0;\n  var left = dirsToDelete.length;\n  if (!left) {\n    callback(null, count);\n    return promise;\n  }\n  var toDelete;\n  var rimrafCallback = function (err) {\n    if (!left) {\n      // Prevent processing if aborted\n      return;\n    }\n    if (err) {\n      // rimraf handles most \"normal\" errors; pass the error to the\n      // callback and abort processing\n      callback(err, count);\n      left = 0;\n      return;\n    } else {\n      count++;\n    }\n    left--;\n    if (!left) {\n      callback(null, count);\n    }\n  };\n  while ((toDelete = dirsToDelete.shift()) !== undefined) {\n    rimraf(toDelete, { maxBusyTries: 6 }, rimrafCallback);\n  }\n  return promise;\n}\n\nfunction cleanupSync() {\n  if (!tracking) {\n    return false;\n  }\n  var fileCount = cleanupFilesSync();\n  var dirCount  = cleanupDirsSync();\n  return {files: fileCount, dirs: dirCount};\n}\n\nfunction cleanup(callback) {\n  var p = promisify(callback);\n  var promise = p[0];\n  callback = p[1];\n\n  if (!tracking) {\n    callback(new Error(\"not tracking\"));\n    return promise;\n  }\n  cleanupFiles(function(fileErr, fileCount) {\n    if (fileErr) {\n      callback(fileErr, {files: fileCount});\n    } else {\n      cleanupDirs(function(dirErr, dirCount) {\n        callback(dirErr, {files: fileCount, dirs: dirCount});\n      });\n    }\n  });\n  return promise;\n}\n\n//== directories\n//\nconst mkdir = (affixes, callback) => {\n  const p = promisify(callback);\n  const promise = p[0];\n  callback = p[1];\n\n  let dirPath = generateName(affixes, 'd-');\n  mkdirp(dirPath, 0o700, (err) => {\n    if (!err) {\n      deleteDirOnExit(dirPath);\n    }\n    callback(err, dirPath);\n  });\n  return promise;\n}\n\nconst mkdirSync = (affixes) => {\n  let dirPath = generateName(affixes, 'd-');\n  mkdirp.sync(dirPath, 0o700);\n  deleteDirOnExit(dirPath);\n  return dirPath;\n}\n\n//== files\n//\nconst open = (affixes, callback) => {\n  const p = promisify(callback);\n  const promise = p[0];\n  callback = p[1];\n\n  const path = generateName(affixes, 'f-');\n  fs.open(path, RDWR_EXCL, 0o600, (err, fd) => {\n    if (!err) {\n      deleteFileOnExit(path);\n    }\n    callback(err, { path, fd });\n  });\n  return promise;\n}\n\nconst openSync = (affixes) => {\n  const path = generateName(affixes, 'f-');\n  let fd = fs.openSync(path, RDWR_EXCL, 0o600);\n  deleteFileOnExit(path);\n  return { path, fd };\n}\n\nconst createWriteStream =  (affixes) => {\n  const path = generateName(affixes, 's-');\n  let stream = fs.createWriteStream(path, { flags: RDWR_EXCL, mode: 0o600 });\n  deleteFileOnExit(path);\n  return stream;\n}\n\n//== settings\n//\nexports.dir = dir;\nexports.track = track;\n\n//== functions\n//\nexports.mkdir = mkdir;\nexports.mkdirSync = mkdirSync;\nexports.open = open;\nexports.openSync = openSync;\nexports.path = generateName;\nexports.cleanup = cleanup;\nexports.cleanupSync = cleanupSync;\nexports.createWriteStream = createWriteStream;\n",
+  "tempSha256": "ab00e9972ccbd639a4558519f40ad6839cb2c616b3da6cb9c12dea2828c6c9c9",
+  "tempCleanup": {
+    "files": 1,
+    "dirs": 1
+  }
+}

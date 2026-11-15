@@ -1,0 +1,11 @@
+name: Project Node and npm
+description: Use the checked-in Node version and integrity-verified project-only npm
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1
+      with:
+        node-version-file: .node-version
+        package-manager-cache: false
+    - shell: bash
+      run: node tools/npm/bootstrap.cjs

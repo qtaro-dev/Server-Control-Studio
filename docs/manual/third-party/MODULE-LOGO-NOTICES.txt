@@ -1,0 +1,17 @@
+モジュール名の商標・汎用アイコンの出典
+
+モジュール一覧には各ソフトウェアを識別する名称と、Tabler Icons由来の汎用ピクトグラムを表示します。各プロジェクトの公式ロゴ画像は使用していません。本ツールは各権利者の公式製品ではなく、提携・承認・保証を意味しません。
+
+Python is a trademark or registered trademark of the Python Software Foundation. The name is used only to identify the corresponding software module; this tool is not affiliated with or endorsed by the Foundation.
+https://www.python.org/
+
+WordPress is a registered trademark of the WordPress Foundation. The name is used only to identify the corresponding software module; this tool is not affiliated with or endorsed by the Foundation.
+https://wordpress.org/
+
+Redmine is used as the name identifying the corresponding software module. This tool is not affiliated with or endorsed by the Redmine project.
+https://www.redmine.org/
+
+Jenkins is a registered trademark of LF Charities, Inc. The name is used only to identify the corresponding software module; this tool is not affiliated with or endorsed by LF Charities or the Jenkins project.
+https://www.jenkins.io/
+
+Generic module glyphs are from Tabler Icons 3.50.0, Copyright (c) 2020-2026 Paweł Kuna, used under the MIT License. The application uses generic pictograms and does not use Tabler brand icons.

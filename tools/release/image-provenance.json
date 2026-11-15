@@ -1,0 +1,128 @@
+[
+  {
+    "file": "image/AIペンギンと Docker クジラの大冒険.png",
+    "sha256": "1690b43494ef7d3376065a176a4a30c869cb607d40d2373c82f8f08dbd3f0fa8",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 23654
+      }
+    ]
+  },
+  {
+    "file": "image/Dockerコンテナの3Dイラストセット.png",
+    "sha256": "7d77d2ce4c0e14db9c5f217eda2178a42759130c3786d06c30a454d63cf7c29b",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 23654
+      }
+    ]
+  },
+  {
+    "file": "image/Dockerコンテナを渡すAIペンギンロボットたち.png",
+    "sha256": "0465865eae0e90adb4dff233c0a66c51126b23538fa6dd238aeacdf14762dd4f",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 21881
+      }
+    ]
+  },
+  {
+    "file": "image/コンテナを運ぶロボペンギン (1).png",
+    "sha256": "d36b15169fdaad908cb56e9ad9876a9bf4397372ad4dafa0aac93b40cb641e31",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 23654
+      }
+    ]
+  },
+  {
+    "file": "image/コンテナを運ぶロボペンギン.png",
+    "sha256": "d36b15169fdaad908cb56e9ad9876a9bf4397372ad4dafa0aac93b40cb641e31",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 23654
+      }
+    ]
+  },
+  {
+    "file": "image/ドッカー便を受け取るAIペンギン.png",
+    "sha256": "53a5793dd8c92a5f475ab6a277970fbae9f6f428881e5e8a41058595f9172921",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 21881
+      }
+    ]
+  },
+  {
+    "file": "image/ペンギンとDockerホエールの港湾コンテナ便.png",
+    "sha256": "3f69f22339dbf1b45305b41469d102e86ad919384c1ad173c926e34ba18937bb",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 21881
+      }
+    ]
+  },
+  {
+    "file": "image/積み重ねられたDockerコンテナ_gbc.png",
+    "sha256": "1174e5f4cde9f6d1008859307c4eafa22a2b31ab57b2b89ca921f927a2b48960",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 23654
+      }
+    ]
+  },
+  {
+    "file": "image/青いDockerロゴ入り輸送コンテナ.png",
+    "sha256": "7761424723883eacb3b0303f08751d9d53b2f7ab68a72d1feeaca09295b9d2d7",
+    "chunks": [
+      {
+        "type": "IHDR",
+        "length": 13
+      },
+      {
+        "type": "caBX",
+        "length": 21881
+      }
+    ]
+  }
+]

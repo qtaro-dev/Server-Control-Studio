@@ -1,0 +1,20 @@
+const {test}=require('node:test'),assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),os=require('node:os'),{spawnSync}=require('node:child_process');
+const {loadModules}=require('../scripts/lib/headless-generation.cjs'),generation=require('../app/src/project-generation'),catalog=require('../app/data/image-catalog.json'),{saveBundle}=require('../app/bundle-save'),{validateGeneratedFiles}=require('../security');
+function model(mode='image',on=true,extra={}){const modules=loadModules().filter(m=>['nginx','mariadb','nodejs'].includes(m.id));const configs=new Map(modules.map(m=>[m.id,{...Object.fromEntries(m.fields.map(f=>[f.name,f.default??''])),...(m.id==='nodejs'?{dataStoreType:mode,generateStarter:on,...extra}:{})}]));return generation.build({modules,configs,catalog,projectName:'myapp'});}
+test('Node starter on/off keeps three deployment modes and emits coherent npm-generated inputs',()=>{
+ for(const mode of ['image','bind','named'])for(const on of [true,false]){const output=model(mode,on);assert.deepEqual(output.errors,[]);const files=output.files.filter(f=>['package.json','package-lock.json','server.cjs'].includes(f.filename));assert.equal(files.length,on?3:0);if(on){const pkg=JSON.parse(files.find(f=>f.filename==='package.json').content),lock=JSON.parse(files.find(f=>f.filename==='package-lock.json').content);assert.equal(pkg.scripts.dev,'node server.cjs');assert.equal(pkg.name,lock.packages[''].name);assert.equal(pkg.version,lock.packages[''].version);assert.equal(lock.lockfileVersion,3);assert.match(files.find(f=>f.filename==='server.cjs').content,/listen\(3000, '0.0.0.0'\)/);}const svc=output.services.find(s=>s.name==='myapp-nodejs');assert.equal(svc.build.context,'./nodejs');assert.equal(svc.build.dockerfile,'Dockerfile.nodejs');assert.deepEqual(svc.command,['sh','-c','npm run dev']);assert.deepEqual(svc.ports,['3000:3000']);validateGeneratedFiles([{relativePath:'docker-compose.yml',content:'x'},...output.files]);}
+ assert.equal(model('bind',true,{dataStorePath:'./sources/node-app'}).files.filter(f=>f.relativePath.startsWith('sources/node-app/')).length,3);
+ assert.equal(model('bind',true,{dataStorePath:'../../outside'}).files.some(f=>f.relativePath.includes('..')),false);
+ assert.ok(model('bind',true,{dataStorePath:'C:/outside'}).notes.includes(generation.nodeStarter.texts.starterExternal));
+});
+test('existing Node application files are protected as a group on confirmed bundle save',async()=>{
+ const base=fs.realpathSync.native(os.tmpdir()),parent=fs.mkdtempSync(path.join(base,'dbt-starter-save-'));
+ try{const root=path.join(parent,'myapp'),dir=path.join(root,'nodejs');fs.mkdirSync(dir,{recursive:true});fs.writeFileSync(path.join(dir,'package.json'),'USER PACKAGE');fs.writeFileSync(path.join(dir,'existing-app.js'),'USER APP');let preview;
+ const result=await saveBundle({parent,projectName:'myapp',files:model().files,conflict:async()=> 'existing',overwrite:async p=>{preview=p;return true;}});
+ assert.equal(fs.readFileSync(path.join(dir,'package.json'),'utf8'),'USER PACKAGE');assert.equal(fs.readFileSync(path.join(dir,'existing-app.js'),'utf8'),'USER APP');assert.equal(fs.existsSync(path.join(dir,'package-lock.json')),false);assert.equal(fs.existsSync(path.join(dir,'server.cjs')),false);assert.equal(result.preserved.length,3);assert.equal(preview.preserved.length,3);assert.ok(fs.existsSync(path.join(root,'nginx/conf/default.conf')));
+ }finally{assert.equal(path.dirname(parent),base);fs.rmSync(parent,{recursive:true,force:true});}
+});
+test('installer license is UTF16LE BOM and identical to original Japanese text apart from CRLF',async()=>{
+ assert.equal(await require('../build/before-build.cjs')(),true,'normal dependency collection must continue');const bytes=fs.readFileSync(path.join(__dirname,'../build/license-utf16le.txt'));
+ assert.deepEqual([...bytes.subarray(0,2)],[255,254]);const text=bytes.subarray(2).toString('utf16le');assert.equal(text.replace(/\r\n/g,'\n'),fs.readFileSync(path.join(__dirname,'../LICENSE.txt'),'utf8').replace(/^\uFEFF/,'').replace(/\r\n/g,'\n'));assert.match(text,/利用許諾/);assert.equal(/(?<!\r)\n/.test(text),false);
+});

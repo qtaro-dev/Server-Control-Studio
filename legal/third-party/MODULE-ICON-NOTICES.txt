@@ -1,0 +1,28 @@
+Tabler Icons 3.50.0 — generic module pictograms
+Copyright (c) 2020-2026 Paweł Kuna
+License: MIT License (full text: TABLER-ICONS-LICENSE.txt)
+Pinned source commit: 6904efd245391ad396df17654738f52f6da8c40e
+Source repository: https://github.com/tabler/tabler-icons
+
+The application uses generic pictograms, not Tabler brand icons. All 19 former product marks have been replaced. PNGs use a 160x160 white canvas, a centered 112x112 outline glyph and neutral slate stroke.
+
+Module file -> Tabler outline glyph -> pinned SVG source
+nginx (nginx.png / manual nginx.png) -> server-2 -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/server-2.svg
+apache (apache.png / manual apache.png) -> world-www -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/world-www.svg
+certbot (certbot.png / manual certbot.png) -> certificate -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/certificate.svg
+laravel (laravel_app.png / manual laravel.png) -> file-code -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/file-code.svg
+nodejs (nodejs.png / manual nodejs.png) -> cpu -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/cpu.svg
+mysql (mysql.png / manual mysql.png) -> database -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/database.svg
+mariadb (mariadb.png / manual mariadb.png) -> database-cog -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/database-cog.svg
+postgresql (postgresql.png / manual postgres.png) -> database-export -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/database-export.svg
+redis (redis.png / manual redis.png) -> database-share -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/database-share.svg
+memcached (memcached.png / manual memcached.png) -> database-search -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/database-search.svg
+phpmyadmin (phpmyadmin.png / manual phpmyadmin.png) -> table-options -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/table-options.svg
+portainer (portainer.png / manual portainer.png) -> container -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/container.svg
+rabbitmq (rabbitmq.png / manual rabbitmq.png) -> messages -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/messages.svg
+ollama (ollama.png / manual ollama.png) -> brain -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/brain.svg
+steamcmd (steamcmd.png / manual steamcmd.png) -> terminal-2 -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/terminal-2.svg
+python-web (python.png / manual python-web.png) -> code-dots -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/code-dots.svg
+wordpress (wordpress.png / manual wordpress.png) -> browser -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/browser.svg
+redmine (redmine.png / manual redmine.png) -> list-check -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/list-check.svg
+jenkins (jenkins.png / manual jenkins.png) -> settings-automation -> https://github.com/tabler/tabler-icons/blob/6904efd245391ad396df17654738f52f6da8c40e/icons/outline/settings-automation.svg
