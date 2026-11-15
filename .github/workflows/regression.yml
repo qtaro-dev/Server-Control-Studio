@@ -29,6 +29,10 @@ jobs:
           persist-credentials: false
       - uses: ./.github/actions/project-toolchain
       - run: node tools/npm/run.cjs ci
+        env:
+          # Unit tests compare bundled notices with the Windows x64 distribution.
+          ELECTRON_INSTALL_PLATFORM: win32
+          ELECTRON_INSTALL_ARCH: x64
       - run: node tools/npm/run.cjs audit
       - run: node tools/npm/run.cjs test
 
