@@ -6,7 +6,7 @@ Docker Composeの構成ファイルをGUIで生成し、保存済みComposeプ�
 
 操作方法は[操作マニュアル](docs/manual/index.html)、構成例は[レシピ集](docs/manual/recipes.html)をご覧ください。開発・検証記録と旧資料は `docs/OLD/` に保管しています。
 
-この作業ツリーはv0.1.0の公開準備版です。バージョンはpackage.json、About表示はapp-info.jsから取得します。`codex/docker-environment-management`では、4番目のDocker環境管理タブなどを実装しています。これは既存のGitHub Release・配布EXEが更新されたという意味ではありません。開発中機能を試す場合は、この作業ツリーから起動してください。
+この作業ツリーはv0.1.1の公開準備版です。バージョンはpackage.json、About表示はapp-info.jsから取得します。`codex/docker-environment-management`では、4番目のDocker環境管理タブなどを実装しています。これは既存のGitHub Release・配布EXEが更新されたという意味ではありません。開発中機能を試す場合は、この作業ツリーから起動してください。
 
 生成のみならローカルDockerは不要です。管理タブから実際にビルド・起動するには、Docker CLI・Compose v2と接続可能なDocker Engineが必要です。WindowsではDocker Desktop（WSL 2方式、Linuxコンテナ）を起動しておきます。開発用の[Docker検証CI](docs/OLD/docker-validation-ci.md)はGitHub-hosted runnerで実行する別の仕組みです。
 

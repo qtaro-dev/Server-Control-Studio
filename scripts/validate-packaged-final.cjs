@@ -15,7 +15,7 @@ async function launch(round){
   const call=(method,params={})=>new Promise((resolve,reject)=>{const id=++session;pending.set(id,{resolve,reject});ws.send(JSON.stringify({id,method,params}));});
   const run=async expression=>{const r=await call('Runtime.evaluate',{expression,awaitPromise:true,returnByValue:true,userGesture:true});if(r.exceptionDetails)throw Error(JSON.stringify(r.exceptionDetails));return r.result.value;};
   for(let i=0;i<120;i++){if(await run('document.querySelectorAll(".module-row").length===19&&!!window.__rendererGenerate&&!!document.querySelector("[data-tab=config]").dataset.tabBound'))break;await delay(100);}
-  const about=await run('window.electronAPI.getAboutInfo()');assert.equal(about.version,'0.1.0');assert.ok(about.thirdPartyDocuments.length>=14);
+  const about=await run('window.electronAPI.getAboutInfo()');assert.equal(about.version,require('../package.json').version);assert.ok(about.thirdPartyDocuments.length>=14);
   assert.equal(await run('document.querySelectorAll(".module-row").length'),19);
   if(round===1){
    await run(`window.__rendererUI.resetConfiguration();['nginx','mariadb','nodejs'].forEach(id=>document.querySelector('.module-row[data-module-id="'+id+'"]').click());document.querySelector('[data-tab=config]').click();document.getElementById('projectNameInput').value='myapp';document.querySelectorAll('.module-review-checkbox').forEach(c=>{if(!c.checked)c.click()});window.__rendererGenerate.generateConfigs();document.querySelector('[data-tab=output]').click()`);

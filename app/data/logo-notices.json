@@ -82,6 +82,14 @@
       "title": "FFmpeg-SOURCE.txt"
     },
     {
+      "file": "SOURCE-BUILD.txt",
+      "title": "SOURCE-BUILD.txt"
+    },
+    {
+      "file": "D3DCOMPILER-SDK.txt",
+      "title": "D3DCOMPILER-SDK.txt"
+    },
+    {
       "file": "StdUtils-NOTICE.txt",
       "title": "StdUtils-NOTICE.txt"
     },

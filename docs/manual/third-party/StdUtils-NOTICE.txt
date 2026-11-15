@@ -9,4 +9,4 @@ The author clarifies that installer executables created with NSIS that use the p
 Official source tag 1.14 and download: https://github.com/lordmulder/stdutils/tree/1.14
 Official source archive: https://github.com/lordmulder/stdutils/releases/download/1.14/StdUtils.2018-10-27.sources.tbz2
 
-Both audited v0.1.0 candidates contained a verbatim copy of the author's v1.14 Unicode DLL. Rebuild verification and public availability of the corresponding source remain pending.
+Both audited v0.1.0 candidates contained a verbatim copy of the author's v1.14 Unicode DLL. The source archive and build instructions are available in the corresponding source ZIP on the GitHub Release. An independent rebuild has not been verified.

@@ -8,4 +8,4 @@ Plugin source download/project page: https://nsis.sourceforge.io/Nsis7z_plug-in
 7-Zip 19.00 source archive: https://www.7-zip.org/a/7z1900-src.7z
 The author's Nsis7z_19.00.7z contains the plug-in source and build projects, and its x86-Unicode DLL matches both audited v0.1.0 candidates.
 Plug-in source and binaries: https://nsis.sourceforge.io/mediawiki/images/6/69/Nsis7z_19.00.7z
-Provide the plug-in source and the upstream 7-Zip 19.00 source with their notices and exact build instructions. Source provision and the rebuild remain pending.
+The plug-in source, upstream 7-Zip 19.00 source and build instructions are available in the corresponding source ZIP on the GitHub Release. An independent rebuild has not been verified.
