@@ -16,7 +16,7 @@
     "license": "LGPL-2.1-or-later with additional components under other permissive licenses as described in LICENSES.chromium.html",
     "buildFlags": "is_component_ffmpeg=true is documented in Electron v45.0.0 build/args/release.gn; effective GN args for this packaged DLL (including --enable-gpl/--enable-nonfree and external libraries) have not been independently established",
     "relinkability": "DLL is separate in the unpacked application. Modified-DLL replacement and application relaunch were not tested.",
-    "complianceStatus": "pending: pinned sources identified; exact binary build, substitute-DLL launch and public source provision remain pending."
+    "complianceStatus": "pending: official source archives and Electron patch checked and staged locally; exact shipped build/toolchain reproduction and public source delivery remain pending."
   },
   "nsis": {
     "electronBuilder": "26.18.1",
@@ -74,7 +74,13 @@
     "compression": "electron-builder 26.18.0 NsisTarget.js explicitly sets SetCompressor=zlib unless packaging compression is store; this project does not select store. Its NSIS template toggles compression around an external app archive. NSIS bzip2/LZMA core compression modes are not selected by that command; the embedded .7z app payload is decoded by Nsis7z (7-Zip 19.00).",
     "licenses": "NSIS-LICENSE.txt documents core NSIS zlib/libpng, bzip2 and CPL-1.0/LZMA terms and the LZMA linking exception. StdUtils is LGPL-2.1-or-later, version 1.1.4.0 (SHA-256 B72E9013A6204E9F01076DC38DABBF30870D44DFC66962ADBF73619D4331601E); Nsis7z uses 7-Zip 19.00 code and follows 7-Zip source licensing. See StdUtils-NOTICE.txt, Nsis7z-NOTICE.txt and LICENSES.chromium.html for the full LGPL text.",
     "sourceAccess": "StdUtils 1.14 and Nsis7z 19.00 official Unicode DLLs match both v0.1.0 audited payloads. The Nsis7z author archive includes the plug-in source and build files. Official sources: https://github.com/lordmulder/stdutils/releases/tag/1.14 and https://nsis.sourceforge.io/Nsis7z_plug-in.",
-    "complianceStatus": "pending: source provision and rebuild instructions, WinShell/UAC/elevate redistribution review"
+    "complianceStatus": "pending: matching StdUtils and Nsis7z source candidates staged locally; redistribution conditions for installer WinShell remain unconfirmed. UAC x86 Unicode matches the author distribution and the zlib notice is included.",
+    "uacLicense": {
+      "version": "0.2.4c",
+      "source": "https://nsis.sourceforge.io/mediawiki/images/8/8f/UAC.zip",
+      "sha256": "2f7f8fc05dc4fd0d5cda501b47e4433357e887bbfed7292c028d99c73b52dc08",
+      "notice": "UAC-LICENSE.txt"
+    }
   },
   "production": [
     {
@@ -139,6 +145,22 @@
     {
       "file": "Nsis7z-NOTICE.txt",
       "sha256": "67ea77d05d7a52247d7410df6cb1f511269b9b78c57a9a0fcef9f314b64bcc87"
+    },
+    {
+      "file": "SOURCE-BUILD.txt",
+      "sha256": "423e9cf0850fc0ab4a52f9675b06d8740a7f6962239e73a55771f03307457fc8"
+    },
+    {
+      "file": "UAC-LICENSE.txt",
+      "sha256": "daf8020bc0910c2e20c15dce2af148bd044c0a16e2305ade940f26723f6ef900"
+    },
+    {
+      "file": "DXC-LICENSE.txt",
+      "sha256": "27a49e35d1da96eba18fba54bc882667ff0ff8c0254f16f2b6e165d605ba7df8"
+    },
+    {
+      "file": "DXC-THIRD-PARTY.txt",
+      "sha256": "19512a5d0a015ef16d167272c164da49a604614a786206212a80ad486ed0be6d"
     }
   ],
   "externalNotBundled": [
@@ -151,6 +173,18 @@
   "pending": [
     "AI illustrations and logo provenance/permissions",
     "FFmpeg effective build configuration, corresponding-source/relink compliance, and public source availability",
-    "NSIS compression/plugin exact component and source obligations"
-  ]
+    "WinShell redistribution grant; finalize corresponding source delivery for StdUtils and Nsis7z",
+    "Windows graphics DLL: D3DCompiler SDK redist binary and terms"
+  ],
+  "graphicsReview": {
+    "sdkTerms": "https://learn.microsoft.com/en-us/legal/windows-sdk/license",
+    "dxcDawnDependency": "9757d44faa47de7e8d1bb731c30551ec608624f9",
+    "dxcMicrosoftRelease": "https://github.com/microsoft/DirectXShaderCompiler/releases/tag/v1.9.2609",
+    "dxcMicrosoftX64MatchesCandidate": false,
+    "dxcEmbeddedSourceRoot": "third_party\\dawn\\third_party\\directx-shader-compiler\\src",
+    "dxcNotices": [
+      "DXC-LICENSE.txt",
+      "DXC-THIRD-PARTY.txt"
+    ]
+  }
 }

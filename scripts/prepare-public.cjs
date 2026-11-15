@@ -12,6 +12,24 @@ fs.writeFileSync(path.join(repository,'README.md'),`# ${pkg.productName}\n\nWind
 fs.writeFileSync(path.join(repository,'CHANGELOG.md'),`# 更新履歴\n\n## v${pkg.version}（公開準備）\n\n- Docker環境管理を4番目のタブへ統合。Compose登録・診断・Node.jsサンプル補完・差分編集・バックアップ・Docker基本操作。\n- プロジェクト名による生成ファイル一式保存。\n- 新規Composeのトップレベルversion属性を廃止。既存ファイルは自動変更しません。\n- 操作マニュアルと利用許諾・第三者表示を同梱。\n\n本番環境の動作保証を示すものではありません。\n`);
 const walk=(dir,prefix='')=>fs.readdirSync(dir,{withFileTypes:true}).flatMap(e=>e.isDirectory()?walk(path.join(dir,e.name),prefix+e.name+'/'):[prefix+e.name]);
 const files=walk(repository);for(const file of files){assert.ok(!/(^|\/)(\.git|app|node_modules|tools|test|\.github)(\/|$)/.test(file),file);const bytes=fs.readFileSync(path.join(repository,file));if(!file.endsWith('.png'))assert.ok(!/-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----|\bghp_[A-Za-z0-9]{30,}|\bgithub_pat_[A-Za-z0-9_]{30,}/.test(bytes.toString()),'Secret material: '+file);}
-fs.mkdirSync(path.join(stage,'release-assets'));
+const assets=path.join(stage,'release-assets');
+fs.mkdirSync(assets);
+const sourceDirectory=process.env.DBT_THIRD_PARTY_SOURCE_DIR;
+if(sourceDirectory){
+ const rows=require('../legal/third-party/source-files.json');
+ const verified=rows.map(({name,size,sha256})=>{
+  assert.equal(path.basename(name),name);
+  const data=fs.readFileSync(path.join(sourceDirectory,name));
+  assert.equal(data.length,size,name);
+  assert.equal(crypto.createHash('sha256').update(data).digest('hex'),sha256,name);
+  return {name,data};
+ });
+ const sources=path.join(assets,'third-party-source');
+ fs.mkdirSync(sources);
+ for(const {name,data} of verified)fs.writeFileSync(path.join(sources,name),data);
+ fs.copyFileSync(path.join(root,'legal/third-party/source-files.json'),path.join(sources,'source-files.json'));
+ fs.copyFileSync(path.join(root,'legal/third-party/SOURCE-BUILD.txt'),path.join(sources,'SOURCE-BUILD.txt'));
+}
+
 fs.writeFileSync(path.join(stage,'STAGING-MANIFEST.json'),JSON.stringify({version:pkg.version,published:false,repositoryInitialized:false,repositoryFiles:files.map(file=>({file,sha256:crypto.createHash('sha256').update(fs.readFileSync(path.join(repository,file))).digest('hex')})),approvalRequired:true},null,2));
 console.log(stage);

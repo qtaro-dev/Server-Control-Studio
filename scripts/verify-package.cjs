@@ -75,23 +75,13 @@ assert.equal(manifest.main, 'main.js');
 assert.equal(source.devDependencies.electron, '45.0.0');
 assert.equal(files.filter(name => /^app\/src\/modules\/.*\.js$/.test(name)).length, 19);
 const resources = fs.readdirSync(path.dirname(archive));
+const systemDll = require('../build/windows-sdk-redist.json').file;
+const payloadRoot = path.dirname(path.dirname(archive));
+assert.ok(!walkFiles(payloadRoot).some(file => path.basename(file).toLowerCase() === systemDll), 'D3DCompiler must be supplied by Windows');
+const { ffmpeg } = require('../legal/third-party/inventory.json');
+assert.equal(sha(fs.readFileSync(path.join(payloadRoot,'ffmpeg.dll'))),ffmpeg.binarySha256,'The shipped FFmpeg DLL must match the existing source and release evidence');
 const expectedResources=['app.asar','manual','LICENSE.txt','THIRD_PARTY_NOTICES.txt','third-party'];
-if(resources.includes('elevate.exe')) {
-  assert.notEqual(process.argv[3],'installer','Installer has elevation helper disabled');
-  // Portable/共有展開物ではビルダー標準ヘルパーが追加される。任意のEXEは許可しない。
-  const cache=process.env.ELECTRON_BUILDER_CACHE||path.join(process.env.LOCALAPPDATA,'electron-builder','Cache');
-  assert.ok(fs.existsSync(cache),'Builder cache unavailable: set ELECTRON_BUILDER_CACHE to the cache used for this build');
-  const candidates=[];
-  for(const outer of fs.readdirSync(cache,{withFileTypes:true}).filter(e=>e.isDirectory()&&e.name.startsWith('nsis-'))) {
-    const folder=path.join(cache,outer.name);
-    for(const inner of fs.readdirSync(folder,{withFileTypes:true}).filter(e=>e.isDirectory())) {
-      const file=path.join(folder,inner.name,'elevate.exe');if(fs.existsSync(file))candidates.push(file);
-    }
-  }
-  const binary=fs.readFileSync(path.join(path.dirname(archive),'elevate.exe'));
-  assert.ok(candidates.some(file=>binary.equals(fs.readFileSync(file))),'Only exact builder-provided cached elevation helper allowed');
-  expectedResources.push('elevate.exe');
-}
+assert.ok(!resources.includes('elevate.exe'),'Elevation helper must be absent from both targets');
 assert.deepEqual(resources.sort(), expectedResources.sort(), 'Only known runtime resources and official manual may be bundled');
 const manualRoot=path.join(root,'docs/manual'),packagedManual=path.join(path.dirname(archive),'manual');
 function walkFiles(directory,prefix='') {

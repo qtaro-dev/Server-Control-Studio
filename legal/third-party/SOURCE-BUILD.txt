@@ -1,0 +1,36 @@
+対応ソース候補と再ビルド情報
+
+この文書は Windows x64 の v0.1.0 Release 1 向けです。対応ソース候補と取得元、SHA-256 は配布用 third-party-source/source-files.json に記載します。配布前には候補の実行ファイルと文書を同じ公開ページに紐づけます。
+
+FFmpeg
+- Electron v45.0.0 が Chromium 156.0.8078.48 を参照します。同版の Chromium DEPS は FFmpeg 9db86ce5b5b454dfc96c435f9f0723012980c37f を固定しています。
+- Electron の patches/ffmpeg/.patches に列挙された link_with_loader_path.patch を同コミットの FFmpeg ソースに対して git apply --check で検証しました。GN の macOS 用分岐を修正するパッチです。
+- 公式Windows x64公開ジョブは Electron 54f961b44b83e4ece81065ab60a182fd0c38c01e の release 設定です。
+- https://github.com/electron/electron/actions/runs/39539521491/job/119024612478
+- 公式 Windows x64 ビルドログと公開されたツールチェーンプロファイルは、depot_tools の 8254f4cd2f を示します。プロファイル内の VS ツリーは 9b490115f7c606528c4e4cddb3d1710726e914cd、Windows SDK ツリーは 56a588eeaefbe11b921f5caee94d9c90820b26d8 です。ログで確認した Windows Clang は llvmorg-24-init-7747-g62397f8b-53 です。
+- https://github.com/electron/electron/releases/download/v45.0.0/electron-v45.0.0-win32-x64-toolchain-profile.zip
+- プロファイル ZIP の SHA-256: c74afb2f66851265ce1b0bbe06018bb54fbc928e15ba08f24e194acd6a80f2a1。プロファイルのインストール済み製品一覧はビルドに使用したツリーの構成を特定するものではありません。Chromium の既定値 3bfcb536c8 は公式ジョブのものと異なります。
+- 一般入手できる候補は Visual Studio 2026（Desktop development with C++、x64 MSVC、ATL/MFC）と Windows SDK 10.0.28000 系です。Microsoft 正規インストーラーから導入し、シェル内だけで DEPOT_TOOLS_WIN_TOOLCHAIN=0 を指定します。手元の SDK の rc.exe は 10.0.28000.2526 です。この構成での再構築は未検証で、公式ツリーのハッシュと同一とは扱いません。
+- LGPL v2.1 第4条は対応する完全なソースの提供を求めています。第6条は通常OS主要構成要素に付属するコンパイラ等に配布範囲の例外を設けています。公式ツールチェーン ZIP の再配布や、再構築した DLL のバイト単位の一致を必須とする文言はありません。
+- https://www.gnu.org/licenses/old-licenses/lgpl-2.1.html
+- https://learn.microsoft.com/en-us/windows/apps/windows-sdk/downloads
+- x64 Windows のビルドは、Electron の公式手順に従い depot_tools を用意し、gclient config --name src/electron --unmanaged https://github.com/electron/electron で設定します。gclient sync --with_branch_heads --with_tags --revision src/electron@v45.0.0 で固定タグの依存とパッチ適用フックを取得します。Chromium の依存ソースとツールチェーンは、チェックアウト時に同タグの定義から取得します。
+- src フォルダで GN に //electron/build/args/release.gn を import し、target_cpu="x64" を指定します。autoninja -C out/Release electron:electron_dist_zip で配布用ビルドを生成します。分離 DLL の出力先は gn desc out/Release //third_party/ffmpeg:ffmpeg outputs でも確認できます。
+- Chrome ブランド設定の Windows x64 用 FFmpeg config.h では GPL=0、NONFREE=0、VERSION3=0、LIBOPUS=1。Chromium 側の Opus には上流 55513e81d8f606bd75d0ff773d2144e5f2a732f5 からの修正があるため、同じ Chromium タグの third_party/opus を取得しています。
+- 前候補と同じ配布元DLLのバイト列、および公式の別ビルド DLL に交換した隔離コピーでの起動を確認済みです。上記手順による出荷DLLの再ビルドと成果物照合は未実施です。
+- https://github.com/electron/electron/blob/v45.0.0/DEPS
+- https://github.com/electron/electron/tree/v45.0.0/build/args
+- https://www.electronjs.org/docs/latest/development/build-instructions-gn
+- https://www.electronjs.org/docs/latest/development/build-instructions-windows/
+- https://ffmpeg.org/legal.html
+
+StdUtils
+- 作者 v1.14 のソースアーカイブ StdUtils.2018-10-27.sources.tbz2 に含まれる Contrib/StdUtils/StdUtils.sln と StdUtils.vcxproj を使用します。作者アーカイブの Unicode DLL と候補の x86 Unicode DLL の SHA-256 は一致します。
+- https://github.com/lordmulder/stdutils/releases/tag/1.14
+
+Nsis7z と 7-Zip
+- 7z1900-src.7z を展開し、Nsis7z_19.00.7z 内の Contrib/nsis7z の内容を同じソースツリーに重ねます。CPP/7zip/Bundles/Nsis7z/Nsis7z.sln と Nsis7z.vcxproj がプラグインのビルド定義です。作者アーカイブの Plugins/x86-unicode/nsis7z.dll と候補の DLL の SHA-256 は一致します。作者の説明ページには旧版の ANSI 手順もあるため、19.00 のビルド定義と Unicode 構成を基準にします。
+- https://nsis.sourceforge.io/Nsis7z_plug-in
+- https://www.7-zip.org/a/7z1900-src.7z
+
+著作権・ライセンスは各ソースアーカイブと同梱の第三者著作権表示を参照してください。上記のソース取得・照合結果は、公開承認の代替ではありません。
